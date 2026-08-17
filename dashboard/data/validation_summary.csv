@@ -1,0 +1,2 @@
+clean_loan_rows,prediction_rows,test_rows,missing_probabilities,invalid_probabilities,invalid_target_values,probability_min,probability_max
+50000,50000,11077,0,0,0,0.069799,0.488878

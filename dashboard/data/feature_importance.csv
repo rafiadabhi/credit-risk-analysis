@@ -1,0 +1,19 @@
+model_name,feature,importance_mean,importance_std
+Calibrated Random Forest,initial_rating,0.3083907360928898,0.003914912989172
+Calibrated Random Forest,maturity_months,0.0802966153979401,0.0165383166216387
+Calibrated Random Forest,credit_score,0.0194275372364134,0.0123149620083207
+Calibrated Random Forest,origination_credit_spread_bps,0.0122947059449791,0.0050119400093172
+Calibrated Random Forest,coupon_rate,0.0089560358863241,0.0056480043721086
+Calibrated Random Forest,collateral,0.005739054246598,0.0010391868469754
+Calibrated Random Forest,log_ead,0.0038451262729048,0.0038192386765595
+Calibrated Random Forest,sector,0.00219325614756,0.0017485473678373
+Calibrated Random Forest,origination_gdp_growth,0.0019927341489537,0.002108470709964
+Calibrated Random Forest,leverage_to_coverage,0.0016735682418019,0.0015357703404906
+Calibrated Random Forest,origination_policy_rate,0.0005492368085242,0.0009006177429276
+Calibrated Random Forest,debt_to_equity,0.0002658473906106,0.0019516323351694
+Calibrated Random Forest,loan_type,4.0319039636402265e-05,0.002779151641188
+Calibrated Random Forest,origination_unemployment,-2.392385648217199e-05,6.483469272894972e-05
+Calibrated Random Forest,origination_month,-0.0003189640246971,0.0030293871266802
+Calibrated Random Forest,interest_coverage,-0.0013805366624478,0.0009602617626821
+Calibrated Random Forest,leverage,-0.0023297479119455,0.0033129961793102
+Calibrated Random Forest,debt_service_pressure,-0.0032594526472674,0.0030158171574484

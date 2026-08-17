@@ -1,0 +1,501 @@
+loan_id,origination_date,sector,loan_type,collateral,initial_rating,credit_score,ead,lgd,default_probability,risk_band,risk_decile,underwriting_action,term_risk_loss_proxy,defaulted,data_split
+L021177,2023-02-01,Utilities,mortgage,unsecured,BB,653,148114601.93,0.6003,0.193414,High,3,Manual Review,17197056.8,0,test
+L036333,2023-04-01,Industrials,term_loan,secured,B,647,128645681.69,0.4244,0.246606,High,2,Manual Review,13464003.84,0,test
+L020249,2022-03-01,Utilities,term_loan,unsecured,CCC,591,40599258.32,0.6623,0.390193,Very High,1,Manual Review,10491856.18,0,test
+L021211,2023-03-01,Energy,revolving,unsecured,CCC,675,44838906.62,0.767,0.249927,High,2,Manual Review,8595349.77,0,test
+L010925,2023-03-01,Industrials,mortgage,unsecured,B,615,71843893.2,0.619,0.180585,High,3,Manual Review,8030862.33,0,test
+L016871,2023-05-01,Financials,term_loan,unsecured,CCC,678,33146640.61,0.5837,0.39871,Very High,1,Manual Review,7714119.12,0,test
+L023250,2022-05-01,Utilities,bond,unsecured,CCC,603,26258237.26,0.6459,0.412527,Very High,1,Manual Review,6996538.55,1,test
+L037487,2023-11-01,Financials,term_loan,secured,BBB,687,137562747.81,0.2712,0.186626,High,3,Manual Review,6962459.39,0,test
+L028259,2023-03-01,Industrials,term_loan,secured,B,666,63661501.25,0.3957,0.252748,High,2,Manual Review,6366938.48,1,test
+L040766,2023-02-01,Energy,term_loan,secured,CCC,704,33227414.24,0.5157,0.371031,Very High,1,Manual Review,6357756.26,1,test
+L006818,2023-05-01,Technology,mortgage,secured,BB,661,53634919.05,0.5314,0.206881,High,2,Manual Review,5896438.68,0,test
+L025791,2023-11-01,Real_Estate,mortgage,unsecured,CCC,596,22691919.39,0.5835,0.438031,Very High,1,Manual Review,5799852.38,0,test
+L009512,2023-10-01,Energy,term_loan,partially_secured,B,727,43276455.52,0.5647,0.234165,High,2,Manual Review,5722574.48,0,test
+L003616,2023-09-01,Telecom,bond,unsecured,B,684,33526209.65,0.6883,0.247353,High,2,Manual Review,5707940.12,0,test
+L021044,2023-08-01,Energy,term_loan,secured,BB,697,95488851.32,0.2994,0.188034,High,3,Manual Review,5375772.11,0,test
+L027144,2022-02-01,Real_Estate,revolving,partially_secured,CCC,624,29792080.02,0.4958,0.36364,Very High,1,Manual Review,5371294.9,0,test
+L006139,2022-12-01,Energy,mortgage,unsecured,B,690,41988076.19,0.6011,0.198249,High,3,Manual Review,5003612.97,0,test
+L026777,2023-06-01,Energy,term_loan,unsecured,B,741,32747621.82,0.6517,0.229738,High,2,Manual Review,4902982.28,0,test
+L032528,2022-04-01,Energy,bond,secured,B,658,29837110.69,0.5676,0.271551,High,1,Manual Review,4598863.92,0,test
+L004841,2022-04-01,Energy,bond,secured,CCC,614,27804782.06,0.4202,0.391027,Very High,1,Manual Review,4568591.1,1,test
+L047938,2023-04-01,Financials,revolving,unsecured,CCC,620,16665337.86,0.6383,0.419301,Very High,1,Manual Review,4460308.16,1,test
+L001115,2022-08-01,Energy,term_loan,unsecured,CCC,654,19532100.43,0.5974,0.381547,Very High,1,Manual Review,4452072.32,0,test
+L038577,2023-06-01,Technology,term_loan,secured,CCC,668,28307633.25,0.4685,0.331958,Very High,1,Manual Review,4402468.88,0,test
+L032195,2023-05-01,Technology,revolving,secured,CCC,671,17532444.33,0.6077,0.413194,Very High,1,Manual Review,4402361.6,1,test
+L046754,2023-10-01,Healthcare,term_loan,unsecured,BBB,729,38554427.27,0.6513,0.173706,High,4,Manual Review,4361844.25,0,test
+L040361,2023-06-01,Financials,revolving,unsecured,B,679,37399464.23,0.517,0.221171,High,2,Manual Review,4276456.96,0,test
+L039725,2023-12-01,Financials,term_loan,secured,AA,701,40391715.59,0.574,0.181583,High,3,Manual Review,4209973.66,0,test
+L000709,2023-11-01,Consumer,term_loan,unsecured,CCC,640,15011544.39,0.6827,0.400607,Very High,1,Manual Review,4105573.31,1,test
+L025593,2022-02-01,Financials,term_loan,secured,CCC,648,19221537.0,0.5319,0.399256,Very High,1,Manual Review,4081967.6,1,test
+L029986,2022-04-01,Real_Estate,term_loan,secured,CCC,585,26104333.62,0.3844,0.405317,Very High,1,Manual Review,4067155.8,0,test
+L017419,2023-01-01,Industrials,mortgage,partially_secured,B,662,29379858.93,0.5443,0.25337,High,2,Manual Review,4051755.51,0,test
+L021144,2023-08-01,Industrials,mortgage,partially_secured,CCC,645,15568376.47,0.59,0.438694,Very High,1,Manual Review,4029554.47,0,test
+L047285,2023-06-01,Utilities,lease,partially_secured,B,679,36256535.44,0.4714,0.234862,High,2,Manual Review,4014104.14,0,test
+L008087,2023-06-01,Financials,mortgage,unsecured,B,636,19995642.89,0.7767,0.258164,High,2,Manual Review,4009445.91,0,test
+L005432,2023-04-01,Financials,term_loan,partially_secured,CCC,684,16073032.78,0.5791,0.414287,Very High,1,Manual Review,3856139.18,0,test
+L039379,2022-11-01,Telecom,bond,unsecured,CCC,668,12821433.39,0.7045,0.421689,Very High,1,Manual Review,3808990.16,0,test
+L031358,2023-10-01,Industrials,bond,partially_secured,B,666,30781067.82,0.5692,0.215318,High,2,Manual Review,3772497.06,0,test
+L006578,2023-01-01,Financials,bond,partially_secured,B,733,34911036.2,0.6143,0.17397,High,4,Manual Review,3730934.44,1,test
+L001395,2023-08-01,Energy,mortgage,partially_secured,B,658,39569242.93,0.4755,0.194524,High,3,Manual Review,3660003.1,0,test
+L033507,2023-09-01,Utilities,term_loan,secured,B,643,39930887.3,0.3492,0.257507,High,2,Manual Review,3590643.06,0,test
+L004305,2023-08-01,Financials,bond,partially_secured,CCC,607,14314328.81,0.6148,0.407138,Very High,1,Manual Review,3582997.35,0,test
+L024635,2023-04-01,Real_Estate,revolving,unsecured,BB,735,29508839.94,0.6442,0.178875,High,4,Manual Review,3400341.25,0,test
+L006785,2022-07-01,Technology,lease,partially_secured,B,669,17072361.15,0.716,0.272691,High,1,Manual Review,3333323.13,0,test
+L000253,2022-04-01,Telecom,term_loan,unsecured,CCC,637,11235138.13,0.7483,0.394099,Very High,1,Manual Review,3313290.34,0,test
+L030332,2023-05-01,Telecom,lease,secured,CCC,651,19115268.06,0.4424,0.390616,Very High,1,Manual Review,3303281.15,1,test
+L012797,2023-01-01,Utilities,term_loan,unsecured,B,687,18123030.46,0.7313,0.247123,High,2,Manual Review,3275213.09,0,test
+L034778,2023-05-01,Energy,mortgage,partially_secured,B,649,45609825.02,0.389,0.183686,High,3,Manual Review,3258997.78,0,test
+L040083,2023-07-01,Financials,revolving,unsecured,BB,701,31209153.89,0.5044,0.204929,High,2,Manual Review,3225971.26,0,test
+L020054,2023-05-01,Energy,mortgage,unsecured,CCC,689,12226031.27,0.7591,0.344224,Very High,1,Manual Review,3194667.33,1,test
+L030131,2023-08-01,Utilities,term_loan,partially_secured,B,662,21966337.47,0.4843,0.298246,High,1,Manual Review,3172829.6,1,test
+L039937,2022-10-01,Utilities,term_loan,secured,CCC,609,26685002.79,0.4696,0.251234,High,2,Manual Review,3148282.92,0,test
+L022269,2023-01-01,Telecom,term_loan,unsecured,BBB,697,25230145.98,0.6882,0.176934,High,4,Manual Review,3072173.42,0,test
+L039552,2023-04-01,Energy,mortgage,secured,B,636,37868237.28,0.3646,0.220053,High,2,Manual Review,3038218.81,0,test
+L045870,2023-09-01,Energy,term_loan,partially_secured,BB,699,25758837.9,0.5572,0.206345,High,2,Manual Review,2961633.57,0,test
+L036383,2022-04-01,Technology,mortgage,unsecured,CCC,655,10387255.26,0.7965,0.354101,Very High,1,Manual Review,2929636.5,1,test
+L037569,2023-09-01,Industrials,bond,secured,CCC,652,24619576.23,0.3288,0.350951,Very High,1,Manual Review,2840919.1,0,test
+L049249,2023-11-01,Industrials,term_loan,secured,CCC,624,10442444.66,0.5885,0.457838,Very High,1,Manual Review,2813587.89,0,test
+L036137,2023-11-01,Financials,term_loan,secured,BBB,682,40984678.84,0.3746,0.182782,High,3,Manual Review,2806226.58,0,test
+L007181,2023-05-01,Energy,term_loan,partially_secured,CCC,721,15400710.54,0.5777,0.311203,Very High,1,Manual Review,2768770.13,1,test
+L008778,2023-04-01,Real_Estate,term_loan,secured,CCC,674,14413362.33,0.491,0.384529,Very High,1,Manual Review,2721296.7,0,test
+L048838,2023-10-01,Real_Estate,revolving,secured,CCC,632,18831957.64,0.3736,0.38624,Very High,1,Manual Review,2717437.63,0,test
+L038942,2023-08-01,Financials,revolving,unsecured,B,689,28908493.11,0.5116,0.183236,High,3,Manual Review,2709984.41,0,test
+L015778,2022-06-01,Energy,revolving,unsecured,B,708,16739030.43,0.6283,0.257117,High,2,Manual Review,2704133.64,1,test
+L041749,2022-08-01,Industrials,bond,unsecured,BB,718,21267726.13,0.7105,0.178516,High,4,Manual Review,2697505.19,0,test
+L039749,2022-12-01,Technology,term_loan,unsecured,BBB,694,20091959.09,0.7065,0.188501,High,3,Manual Review,2675765.87,1,test
+L010093,2023-11-01,Telecom,term_loan,unsecured,B,687,18209443.78,0.5994,0.244421,High,2,Manual Review,2667791.81,0,test
+L010400,2022-10-01,Industrials,bond,unsecured,BB,692,24289426.9,0.5966,0.183892,High,3,Manual Review,2664792.23,0,test
+L041532,2023-09-01,Real_Estate,term_loan,secured,CCC,625,18020686.13,0.3436,0.425656,Very High,1,Manual Review,2635622.69,1,test
+L014999,2022-08-01,Utilities,term_loan,secured,CCC,684,12765037.23,0.4557,0.449019,Very High,1,Manual Review,2611955.86,0,test
+L028411,2023-11-01,Real_Estate,mortgage,secured,B,690,39342916.97,0.3852,0.17218,High,4,Manual Review,2609369.24,0,test
+L017576,2022-10-01,Healthcare,term_loan,secured,BB,688,23183731.63,0.5437,0.205896,High,2,Manual Review,2595318.03,0,test
+L027585,2023-02-01,Financials,mortgage,secured,BB,721,24529952.55,0.5379,0.192278,High,3,Manual Review,2537043.12,0,test
+L041801,2023-01-01,Technology,term_loan,unsecured,CCC,702,7177925.55,0.8346,0.42043,Very High,1,Manual Review,2518668.6,0,test
+L021965,2022-07-01,Financials,mortgage,unsecured,CCC,655,9946684.2,0.648,0.390539,Very High,1,Manual Review,2517200.13,1,test
+L013749,2022-08-01,Telecom,term_loan,partially_secured,B,660,23802010.66,0.5765,0.181655,High,3,Manual Review,2492644.32,0,test
+L031164,2022-12-01,Industrials,term_loan,unsecured,CCC,557,7999312.65,0.7117,0.433859,Very High,1,Manual Review,2470007.36,1,test
+L039854,2023-06-01,Financials,revolving,unsecured,BB,678,19719469.64,0.6288,0.199142,High,3,Manual Review,2469281.64,0,test
+L012407,2023-06-01,Real_Estate,mortgage,partially_secured,CCC,616,16200254.67,0.4216,0.360922,Very High,1,Manual Review,2465107.14,1,test
+L045399,2022-08-01,Telecom,term_loan,unsecured,BBB,673,17208981.76,0.8303,0.170201,High,4,Manual Review,2431937.0,0,test
+L031777,2022-12-01,Energy,revolving,partially_secured,CCC,682,12060438.02,0.4693,0.428281,Very High,1,Manual Review,2424054.85,0,test
+L029747,2022-11-01,Telecom,term_loan,unsecured,CCC,623,10742938.76,0.6709,0.330256,Very High,1,Manual Review,2380299.52,0,test
+L008576,2023-03-01,Industrials,revolving,secured,CCC,699,17545066.62,0.3224,0.420422,Very High,1,Manual Review,2378129.44,0,test
+L022407,2023-03-01,Industrials,bond,unsecured,B,689,15481504.41,0.761,0.201603,High,3,Manual Review,2375170.6,1,test
+L020085,2023-12-01,Energy,revolving,partially_secured,CCC,668,10711172.44,0.5778,0.383686,Very High,1,Manual Review,2374600.21,0,test
+L010189,2023-05-01,Telecom,bond,secured,BBB,756,34789175.1,0.3985,0.171086,High,4,Manual Review,2371848.41,0,test
+L007617,2022-12-01,Healthcare,bond,unsecured,CCC,677,10180095.07,0.7287,0.314971,Very High,1,Manual Review,2336528.98,0,test
+L014411,2022-05-01,Utilities,mortgage,unsecured,BB,654,20610565.05,0.5128,0.218385,High,2,Manual Review,2308132.41,0,test
+L014764,2023-03-01,Real_Estate,revolving,unsecured,CCC,660,13213693.48,0.448,0.386383,Very High,1,Manual Review,2287284.84,1,test
+L041231,2022-08-01,Consumer,lease,unsecured,BB,664,16029408.0,0.7528,0.189483,High,3,Manual Review,2286479.68,0,test
+L035696,2022-01-01,Financials,revolving,unsecured,CCC,639,9326886.39,0.7365,0.332052,Very High,1,Manual Review,2280948.81,0,test
+L035920,2023-10-01,Financials,term_loan,partially_secured,BBB,673,20467918.26,0.5961,0.186857,High,3,Manual Review,2279828.44,0,test
+L042094,2023-11-01,Real_Estate,revolving,unsecured,B,684,22742215.32,0.5616,0.17633,High,4,Manual Review,2252091.72,0,test
+L037291,2023-09-01,Utilities,mortgage,secured,B,635,15445113.0,0.6038,0.240909,High,2,Manual Review,2246659.33,0,test
+L042507,2023-08-01,Retail,mortgage,secured,B,676,15688327.22,0.5948,0.24044,High,2,Manual Review,2243645.91,0,test
+L038097,2022-04-01,Real_Estate,mortgage,secured,BB,668,27383450.77,0.4067,0.197238,High,3,Manual Review,2196609.91,0,test
+L003164,2023-09-01,Real_Estate,revolving,secured,B,684,16510156.97,0.4926,0.268793,High,2,Manual Review,2186067.48,0,test
+L010811,2022-11-01,Financials,revolving,partially_secured,CCC,618,8214509.29,0.663,0.399839,Very High,1,Manual Review,2177611.02,0,test
+L019427,2023-01-01,Real_Estate,mortgage,unsecured,B,633,24234054.54,0.5128,0.175011,High,4,Manual Review,2174900.75,0,test
+L043652,2022-05-01,Telecom,revolving,unsecured,BB,680,14535197.21,0.7205,0.207067,High,2,Manual Review,2168531.85,0,test
+L006422,2023-03-01,Industrials,term_loan,partially_secured,B,700,17351445.02,0.5252,0.236152,High,2,Manual Review,2152048.2,0,test
+L039178,2023-10-01,Financials,term_loan,partially_secured,BB,732,18901928.76,0.6431,0.17621,High,4,Manual Review,2141978.87,0,test
+L042675,2023-02-01,Utilities,bond,secured,BB,686,30934974.65,0.3343,0.203778,High,2,Manual Review,2107382.83,0,test
+L010479,2023-04-01,Energy,revolving,secured,CCC,664,10807129.94,0.4349,0.447617,Very High,1,Manual Review,2103809.22,1,test
+L004513,2023-12-01,Real_Estate,bond,unsecured,CCC,673,14401829.21,0.4942,0.294862,High,1,Manual Review,2098646.08,1,test
+L049704,2023-11-01,Financials,mortgage,secured,BB,679,33930282.86,0.3097,0.198742,High,3,Manual Review,2088422.39,1,test
+L027868,2023-11-01,Financials,revolving,unsecured,CCC,615,7824337.82,0.5764,0.462545,Very High,1,Manual Review,2086054.05,1,test
+L032188,2023-11-01,Financials,term_loan,secured,CCC,660,16597088.46,0.2962,0.423139,Very High,1,Manual Review,2080175.7,0,test
+L029210,2023-01-01,Industrials,mortgage,unsecured,B,706,10468824.58,0.8342,0.237254,High,2,Manual Review,2071961.36,0,test
+L040812,2022-01-01,Technology,term_loan,secured,CCC,619,14376163.95,0.757,0.190061,High,3,Manual Review,2068387.51,0,test
+L003384,2023-05-01,Financials,term_loan,unsecured,CCC,635,7139198.18,0.876,0.328927,Very High,1,Manual Review,2057088.93,1,test
+L001448,2022-05-01,Telecom,mortgage,partially_secured,B,696,12907471.76,0.7197,0.221075,High,2,Manual Review,2053677.85,0,test
+L014073,2022-04-01,Energy,revolving,secured,B,701,21130032.14,0.5455,0.176498,High,4,Manual Review,2034392.29,1,test
+L024174,2022-04-01,Healthcare,term_loan,secured,BB,692,20708300.26,0.5531,0.176422,High,4,Manual Review,2020695.4,0,test
+L043855,2023-01-01,Financials,term_loan,unsecured,CCC,674,11636295.56,0.4587,0.374446,Very High,1,Manual Review,1998631.28,0,test
+L004910,2022-04-01,Financials,mortgage,partially_secured,CCC,654,18153216.95,0.5024,0.218784,High,2,Manual Review,1995348.63,0,test
+L035476,2023-06-01,Financials,term_loan,secured,BBB,767,28888174.47,0.3832,0.179827,High,3,Manual Review,1990675.62,0,test
+L021296,2023-05-01,Telecom,term_loan,partially_secured,BBB,737,22089959.5,0.5274,0.170868,High,4,Manual Review,1990654.0,0,test
+L012862,2022-12-01,Technology,mortgage,secured,BB,648,27106065.23,0.3811,0.191197,High,3,Manual Review,1975088.23,0,test
+L044544,2023-12-01,Utilities,revolving,secured,B,695,23214753.39,0.3733,0.226242,High,2,Manual Review,1960628.43,0,test
+L033235,2022-03-01,Telecom,bond,secured,B,661,17403733.84,0.4742,0.237116,High,2,Manual Review,1956882.92,0,test
+L018591,2022-04-01,Industrials,revolving,secured,B,652,13114941.82,0.6055,0.246014,High,2,Manual Review,1953621.1,0,test
+L000909,2022-08-01,Energy,term_loan,unsecured,CCC,663,5915827.49,0.7259,0.453621,Very High,1,Manual Review,1947984.29,1,test
+L019590,2023-01-01,Energy,term_loan,unsecured,B,688,14388324.37,0.4988,0.270267,High,1,Manual Review,1939678.2,0,test
+L026360,2023-09-01,Industrials,mortgage,unsecured,BB,683,21232952.48,0.4698,0.194328,High,3,Manual Review,1938468.65,0,test
+L039829,2023-10-01,Industrials,term_loan,partially_secured,BBB,684,19622368.09,0.5,0.197441,High,3,Manual Review,1937129.99,0,test
+L047194,2023-05-01,Technology,lease,unsecured,CCC,656,9496486.08,0.6179,0.326369,Very High,1,Manual Review,1915093.72,0,test
+L019655,2023-01-01,Energy,revolving,partially_secured,CCC,631,8864178.31,0.5225,0.41199,Very High,1,Manual Review,1908145.35,0,test
+L034448,2023-07-01,Telecom,term_loan,unsecured,B,609,14940810.06,0.6944,0.182943,High,3,Manual Review,1898015.06,0,test
+L006151,2023-06-01,Utilities,revolving,partially_secured,B,686,11319932.68,0.6467,0.25898,High,2,Manual Review,1895889.11,1,test
+L002664,2023-11-01,Technology,term_loan,partially_secured,CCC,611,8856412.93,0.6073,0.349802,Very High,1,Manual Review,1881409.91,0,test
+L012568,2023-08-01,Energy,term_loan,unsecured,B,645,12172763.74,0.7259,0.212415,High,2,Manual Review,1876943.38,0,test
+L031452,2023-09-01,Energy,bond,unsecured,B,703,14158468.79,0.5596,0.236175,High,2,Manual Review,1871233.21,0,test
+L045444,2022-09-01,Utilities,lease,unsecured,CCC,644,10868311.43,0.617,0.27856,High,1,Manual Review,1867953.21,0,test
+L043293,2023-07-01,Real_Estate,term_loan,secured,BBB,679,27763490.35,0.3555,0.188544,High,3,Manual Review,1860914.35,0,test
+L019899,2022-04-01,Industrials,term_loan,unsecured,CCC,696,6110169.73,0.7539,0.403158,Very High,1,Manual Review,1857129.97,1,test
+L000821,2023-03-01,Telecom,bond,unsecured,BB,736,20655978.02,0.5107,0.175618,High,4,Manual Review,1852595.68,0,test
+L039404,2023-11-01,Industrials,mortgage,unsecured,BBB,724,16120584.42,0.605,0.189421,High,3,Manual Review,1847414.22,0,test
+L011746,2023-06-01,Utilities,mortgage,secured,CCC,561,12606272.72,0.3473,0.421483,Very High,1,Manual Review,1845319.39,0,test
+L038122,2022-09-01,Telecom,bond,partially_secured,B,663,15672542.8,0.6062,0.193425,High,3,Manual Review,1837672.02,0,test
+L028397,2023-06-01,Financials,mortgage,unsecured,AA,750,14114075.5,0.7478,0.173524,High,4,Manual Review,1831460.04,0,test
+L025105,2022-12-01,Real_Estate,lease,partially_secured,CCC,679,7555077.93,0.5974,0.403926,Very High,1,Manual Review,1823081.04,1,test
+L013661,2022-11-01,Consumer,lease,unsecured,CCC,640,6227028.5,0.6891,0.417611,Very High,1,Manual Review,1791987.74,1,test
+L031263,2022-12-01,Telecom,mortgage,partially_secured,BBB,705,17100054.26,0.6067,0.172208,High,4,Manual Review,1786589.62,0,test
+L016372,2022-11-01,Utilities,revolving,partially_secured,B,686,11730501.6,0.5965,0.253925,High,2,Manual Review,1776775.23,0,test
+L029218,2023-05-01,Real_Estate,bond,partially_secured,B,705,16715038.21,0.485,0.219101,High,2,Manual Review,1776206.57,0,test
+L037273,2023-01-01,Telecom,mortgage,unsecured,B,682,13953537.13,0.7268,0.174307,High,4,Manual Review,1767722.38,0,test
+L010935,2023-06-01,Utilities,bond,partially_secured,CCC,593,10209241.62,0.5775,0.2995,High,1,Manual Review,1765803.19,0,test
+L021443,2023-04-01,Telecom,revolving,unsecured,B,721,10102525.14,0.7265,0.239062,High,2,Manual Review,1754591.85,0,test
+L039564,2022-06-01,Energy,term_loan,unsecured,BB,687,13230125.5,0.6657,0.1992,High,3,Manual Review,1754413.07,0,test
+L031499,2022-07-01,Utilities,mortgage,unsecured,CCC,607,7810889.82,0.556,0.403257,Very High,1,Manual Review,1751286.57,1,test
+L005431,2022-03-01,Technology,term_loan,secured,CCC,645,6865506.15,0.6933,0.367007,Very High,1,Manual Review,1746900.26,0,test
+L012024,2022-11-01,Industrials,term_loan,unsecured,B,594,9095249.52,0.7574,0.251896,High,2,Manual Review,1735246.55,0,test
+L038760,2023-02-01,Real_Estate,lease,secured,BB,679,23548133.05,0.4132,0.178018,High,4,Manual Review,1732130.91,0,test
+L015669,2022-08-01,Financials,revolving,unsecured,BB,671,14068324.59,0.6372,0.1927,High,3,Manual Review,1727427.63,1,test
+L014492,2022-08-01,Real_Estate,bond,unsecured,B,656,18813059.18,0.4342,0.211419,High,2,Manual Review,1727003.65,0,test
+L027840,2022-11-01,Utilities,term_loan,partially_secured,BB,718,14308801.66,0.6139,0.196095,High,3,Manual Review,1722532.47,0,test
+L006399,2023-01-01,Utilities,mortgage,partially_secured,B,689,11811138.9,0.584,0.249502,High,2,Manual Review,1720991.22,0,test
+L001485,2023-06-01,Telecom,revolving,unsecured,B,706,10916770.43,0.6427,0.245015,High,2,Manual Review,1719076.29,0,test
+L037642,2023-06-01,Retail,term_loan,partially_secured,B,638,7922904.12,0.7942,0.272254,High,1,Manual Review,1713123.03,0,test
+L027213,2023-08-01,Utilities,term_loan,secured,CCC,615,8743960.3,0.5096,0.383425,Very High,1,Manual Review,1708511.96,0,test
+L042976,2022-10-01,Real_Estate,revolving,secured,BB,686,16055985.46,0.5069,0.208542,High,2,Manual Review,1697277.26,0,test
+L020369,2023-04-01,Energy,term_loan,secured,CCC,649,7176495.38,0.6021,0.387146,Very High,1,Manual Review,1672845.43,0,test
+L033639,2022-12-01,Industrials,revolving,unsecured,B,623,11042300.31,0.6429,0.235504,High,2,Manual Review,1671865.24,0,test
+L034259,2023-04-01,Financials,lease,unsecured,BBB,681,13230250.84,0.7171,0.17603,High,4,Manual Review,1670069.29,0,test
+L021776,2022-11-01,Real_Estate,mortgage,secured,CCC,670,15190101.7,0.2735,0.401564,Very High,1,Manual Review,1668294.75,1,test
+L003041,2023-10-01,Utilities,term_loan,partially_secured,CCC,633,7688328.06,0.5384,0.402777,Very High,1,Manual Review,1667253.43,0,test
+L018474,2023-06-01,Energy,term_loan,unsecured,B,698,9000575.29,0.7731,0.239358,High,2,Manual Review,1665535.48,0,test
+L002956,2023-02-01,Financials,mortgage,partially_secured,BB,632,22105912.65,0.4297,0.173006,High,4,Manual Review,1643368.54,0,test
+L008235,2022-10-01,Telecom,term_loan,secured,BBB,694,13515038.45,0.6204,0.195656,High,3,Manual Review,1640522.7,0,test
+L023198,2023-06-01,Industrials,bond,secured,CCC,616,8959239.14,0.4635,0.393677,Very High,1,Manual Review,1634786.0,0,test
+L018335,2022-11-01,Financials,bond,secured,CCC,660,9656335.56,0.4413,0.381414,Very High,1,Manual Review,1625335.07,1,test
+L033157,2022-04-01,Telecom,revolving,unsecured,B,644,9673188.74,0.6623,0.253449,High,2,Manual Review,1623734.43,0,test
+L010740,2023-01-01,Energy,revolving,partially_secured,BB,730,18993829.72,0.5006,0.170665,High,4,Manual Review,1622735.92,0,test
+L029302,2022-05-01,Healthcare,mortgage,unsecured,CCC,687,7415453.18,0.5815,0.375445,Very High,1,Manual Review,1618951.14,1,test
+L025457,2023-02-01,Telecom,mortgage,unsecured,B,671,12697966.07,0.5911,0.21478,High,2,Manual Review,1612088.8,0,test
+L026654,2022-11-01,Utilities,term_loan,unsecured,BB,749,17444099.16,0.509,0.180497,High,3,Manual Review,1602641.25,0,test
+L039685,2022-05-01,Real_Estate,revolving,secured,CCC,686,7076571.23,0.5408,0.411827,Very High,1,Manual Review,1576065.93,0,test
+L035433,2022-12-01,Financials,bond,unsecured,CCC,662,4770440.01,0.8155,0.403857,Very High,1,Manual Review,1571122.39,0,test
+L021423,2022-12-01,Healthcare,bond,secured,BB,645,21331982.49,0.3781,0.194752,High,3,Manual Review,1570796.13,0,test
+L021299,2022-03-01,Real_Estate,mortgage,partially_secured,CCC,677,8648967.69,0.471,0.385263,Very High,1,Manual Review,1569431.93,0,test
+L023950,2023-04-01,Financials,bond,unsecured,BB,641,11160460.03,0.7181,0.195448,High,3,Manual Review,1566384.06,0,test
+L024363,2023-05-01,Industrials,revolving,secured,BBB,756,20796536.5,0.4293,0.175285,High,4,Manual Review,1564936.26,0,test
+L038215,2023-06-01,Utilities,bond,unsecured,BBB,738,12958129.64,0.6548,0.184007,High,3,Manual Review,1561296.32,0,test
+L045801,2022-08-01,Technology,mortgage,partially_secured,A,684,12521617.99,0.7083,0.17529,High,4,Manual Review,1554657.88,0,test
+L027358,2023-07-01,Utilities,mortgage,unsecured,B,638,9376172.79,0.7609,0.217513,High,2,Manual Review,1551809.49,0,test
+L046439,2023-04-01,Telecom,term_loan,unsecured,CCC,606,6468459.88,0.6585,0.362141,Very High,1,Manual Review,1542532.65,0,test
+L021261,2022-03-01,Financials,term_loan,unsecured,CCC,654,6067664.41,0.7087,0.356166,Very High,1,Manual Review,1531568.57,0,test
+L001541,2023-06-01,Consumer,bond,unsecured,BBB,638,11128816.48,0.7928,0.172573,High,4,Manual Review,1522598.76,0,test
+L006315,2023-10-01,Financials,term_loan,secured,BB,635,20281819.33,0.3521,0.212002,High,2,Manual Review,1513954.74,0,test
+L001810,2022-10-01,Real_Estate,revolving,partially_secured,CCC,665,6016757.25,0.5486,0.458347,Very High,1,Manual Review,1512908.58,0,test
+L035651,2023-04-01,Real_Estate,mortgage,secured,BBB,715,12767634.19,0.6593,0.179728,High,3,Manual Review,1512896.61,0,test
+L010304,2023-03-01,Consumer,revolving,unsecured,BBB,686,11277242.89,0.707,0.189397,High,3,Manual Review,1510064.31,0,test
+L013609,2023-10-01,Telecom,term_loan,unsecured,CCC,647,5222408.13,0.6953,0.414831,Very High,1,Manual Review,1506309.59,1,test
+L047691,2023-08-01,Real_Estate,term_loan,unsecured,B,693,12842834.88,0.5944,0.196617,High,3,Manual Review,1500931.13,0,test
+L030908,2022-11-01,Industrials,mortgage,secured,B,656,10392687.42,0.6449,0.21964,High,2,Manual Review,1472080.9,1,test
+L030494,2023-01-01,Industrials,term_loan,secured,CCC,646,6902670.92,0.4803,0.439299,Very High,1,Manual Review,1456431.19,1,test
+L039620,2023-02-01,Energy,term_loan,unsecured,CCC,632,6751660.79,0.6113,0.352876,Very High,1,Manual Review,1456421.67,1,test
+L001927,2023-05-01,Financials,term_loan,unsecured,CCC,604,7579324.81,0.5109,0.375547,Very High,1,Manual Review,1454222.03,1,test
+L039604,2023-03-01,Healthcare,term_loan,unsecured,B,660,9773542.99,0.5983,0.247704,High,2,Manual Review,1448451.81,0,test
+L047533,2023-11-01,Financials,revolving,unsecured,BB,697,10546050.03,0.6704,0.203136,High,3,Manual Review,1436186.13,0,test
+L030722,2022-07-01,Energy,mortgage,unsecured,CCC,678,4137699.75,0.7553,0.457901,Very High,1,Manual Review,1431034.32,1,test
+L047585,2022-12-01,Utilities,mortgage,partially_secured,CCC,700,9273313.08,0.4564,0.335526,Very High,1,Manual Review,1420060.14,1,test
+L041249,2023-08-01,Real_Estate,revolving,secured,CCC,616,9073233.08,0.3486,0.448855,Very High,1,Manual Review,1419696.52,1,test
+L001216,2022-05-01,Financials,term_loan,unsecured,A,775,14304801.85,0.5657,0.174858,High,4,Manual Review,1414990.52,0,test
+L035635,2023-06-01,Real_Estate,bond,unsecured,CCC,680,6101436.25,0.5528,0.416857,Very High,1,Manual Review,1406006.12,0,test
+L002414,2023-01-01,Financials,mortgage,unsecured,CCC,637,5127110.3,0.7306,0.374066,Very High,1,Manual Review,1401201.4,1,test
+L034273,2023-02-01,Telecom,term_loan,secured,B,723,11302111.18,0.4985,0.248455,High,2,Manual Review,1399820.92,0,test
+L035666,2022-07-01,Financials,revolving,unsecured,B,669,11516847.01,0.6893,0.17618,High,4,Manual Review,1398615.97,0,test
+L017362,2022-07-01,Healthcare,term_loan,unsecured,B,648,7131006.58,0.6799,0.288428,High,1,Manual Review,1398406.06,0,test
+L020470,2023-07-01,Industrials,bond,secured,B,706,8537753.2,0.6569,0.247968,High,2,Manual Review,1390716.15,0,test
+L026972,2022-10-01,Financials,revolving,secured,B,732,10164803.26,0.5766,0.236653,High,2,Manual Review,1387029.28,0,test
+L021580,2023-05-01,Energy,bond,partially_secured,BB,694,14332467.59,0.5188,0.186084,High,3,Manual Review,1383661.86,0,test
+L015025,2022-02-01,Financials,bond,partially_secured,B,663,9794545.15,0.5826,0.242423,High,2,Manual Review,1383338.85,0,test
+L042403,2023-06-01,Industrials,mortgage,unsecured,B,683,10840980.04,0.728,0.174204,High,4,Manual Review,1374858.64,1,test
+L023361,2023-06-01,Telecom,mortgage,unsecured,CCC,650,4416321.24,0.7442,0.416739,Very High,1,Manual Review,1369665.34,0,test
+L007137,2022-05-01,Utilities,mortgage,unsecured,B,734,11300288.26,0.5197,0.232314,High,2,Manual Review,1364324.32,0,test
+L044624,2022-11-01,Financials,revolving,secured,B,684,10685458.84,0.5513,0.231167,High,2,Manual Review,1361780.17,0,test
+L024408,2023-10-01,Real_Estate,revolving,secured,BB,688,15935515.89,0.4322,0.197585,High,3,Manual Review,1360833.09,0,test
+L040203,2023-11-01,Financials,lease,unsecured,B,656,9628707.98,0.6521,0.216373,High,2,Manual Review,1358580.2,0,test
+L043158,2023-06-01,Technology,bond,secured,B,693,11897665.64,0.4572,0.249169,High,2,Manual Review,1355382.86,1,test
+L009788,2022-10-01,Financials,lease,secured,CCC,659,5092674.41,0.5714,0.465382,Very High,1,Manual Review,1354240.29,0,test
+L036170,2022-06-01,Energy,revolving,partially_secured,BB,720,13792692.03,0.5108,0.191633,High,3,Manual Review,1350113.33,0,test
+L038176,2022-05-01,Financials,term_loan,secured,CCC,644,6099555.84,0.502,0.440329,Very High,1,Manual Review,1348277.28,0,test
+L035986,2023-11-01,Healthcare,term_loan,partially_secured,BB,659,10534506.39,0.6208,0.206128,High,2,Manual Review,1348040.34,0,test
+L047286,2022-04-01,Technology,term_loan,unsecured,CCC,654,8600880.54,0.5591,0.277922,High,1,Manual Review,1336458.06,1,test
+L003731,2022-10-01,Utilities,bond,unsecured,BBB,689,10876012.83,0.6868,0.178814,High,4,Manual Review,1335677.21,0,test
+L046538,2023-09-01,Real_Estate,term_loan,unsecured,B,653,12245131.66,0.5069,0.215108,High,2,Manual Review,1335187.67,0,test
+L000024,2023-11-01,Industrials,mortgage,partially_secured,CCC,669,4576527.65,0.6825,0.42569,Very High,1,Manual Review,1329634.25,0,test
+L040781,2023-08-01,Telecom,revolving,secured,BBB,690,14204529.09,0.4666,0.200562,High,3,Manual Review,1329291.5,0,test
+L028447,2022-11-01,Industrials,term_loan,partially_secured,B,690,8890695.86,0.5386,0.277448,High,1,Manual Review,1328567.74,1,test
+L004455,2022-07-01,Technology,mortgage,partially_secured,CCC,677,3774941.84,0.8602,0.408891,Very High,1,Manual Review,1327752.89,1,test
+L022715,2022-05-01,Real_Estate,term_loan,unsecured,CCC,666,4805594.68,0.7143,0.385799,Very High,1,Manual Review,1324307.64,0,test
+L042083,2022-11-01,Financials,bond,secured,CCC,650,6300434.72,0.4536,0.459802,Very High,1,Manual Review,1314057.65,0,test
+L038672,2022-07-01,Technology,revolving,unsecured,B,697,7383126.78,0.8622,0.206074,High,2,Manual Review,1311811.84,1,test
+L026687,2023-04-01,Financials,term_loan,partially_secured,BB,734,14347366.27,0.4657,0.19605,High,3,Manual Review,1309921.5,0,test
+L042047,2023-11-01,Real_Estate,mortgage,partially_secured,B,661,7792978.52,0.638,0.262714,High,2,Manual Review,1306193.07,0,test
+L030012,2022-10-01,Financials,mortgage,secured,BBB,730,17191366.1,0.4409,0.172027,High,4,Manual Review,1303908.46,0,test
+L039474,2023-03-01,Energy,mortgage,unsecured,BB,728,10905856.08,0.6816,0.174673,High,4,Manual Review,1298419.78,0,test
+L046667,2022-07-01,Financials,mortgage,partially_secured,CCC,657,4985269.3,0.6791,0.382115,Very High,1,Manual Review,1293648.95,1,test
+L007631,2023-07-01,Real_Estate,mortgage,secured,CCC,620,6492016.21,0.4576,0.434634,Very High,1,Manual Review,1291187.49,1,test
+L001294,2023-01-01,Financials,term_loan,unsecured,B,640,8761101.83,0.5862,0.250868,High,2,Manual Review,1288397.31,1,test
+L019721,2022-12-01,Energy,term_loan,partially_secured,BB,724,12861678.72,0.5478,0.181418,High,3,Manual Review,1278203.67,0,test
+L008418,2022-08-01,Industrials,mortgage,secured,B,711,12225728.44,0.5478,0.190088,High,3,Manual Review,1273067.63,1,test
+L001538,2022-06-01,Financials,mortgage,unsecured,BB,739,13052559.23,0.5362,0.181104,High,3,Manual Review,1267507.46,1,test
+L030366,2022-10-01,Utilities,term_loan,unsecured,BBB,760,12082403.05,0.5882,0.178198,High,4,Manual Review,1266429.93,0,test
+L026029,2023-09-01,Utilities,mortgage,secured,B,666,13910880.1,0.3572,0.254861,High,2,Manual Review,1266395.74,0,test
+L019374,2022-12-01,Telecom,term_loan,partially_secured,CCC,630,5117619.5,0.6118,0.40438,Very High,1,Manual Review,1266097.45,0,test
+L036240,2023-03-01,Industrials,revolving,unsecured,B,674,8481549.73,0.5921,0.249351,High,2,Manual Review,1252222.17,0,test
+L045277,2022-08-01,Technology,revolving,unsecured,CCC,663,5181395.64,0.7651,0.314574,Very High,1,Manual Review,1247061.24,0,test
+L036850,2023-06-01,Telecom,term_loan,secured,B,660,7237625.52,0.6251,0.275504,High,1,Manual Review,1246446.14,0,test
+L027229,2022-05-01,Energy,revolving,unsecured,CCC,660,4320494.81,0.7044,0.408638,Very High,1,Manual Review,1243631.13,0,test
+L048054,2023-10-01,Utilities,mortgage,secured,BB,668,15999077.69,0.4464,0.173791,High,4,Manual Review,1241213.29,0,test
+L012345,2023-09-01,Telecom,term_loan,partially_secured,BB,679,9537575.37,0.6644,0.195453,High,3,Manual Review,1238539.74,0,test
+L035633,2023-07-01,Utilities,term_loan,partially_secured,BBB,719,12581508.03,0.5278,0.18631,High,3,Manual Review,1237195.27,0,test
+L029812,2023-10-01,Telecom,term_loan,unsecured,BBB,735,9161802.16,0.7784,0.173243,High,4,Manual Review,1235490.56,0,test
+L046153,2023-11-01,Industrials,term_loan,secured,CCC,643,6510041.25,0.5156,0.366068,Very High,1,Manual Review,1228735.53,0,test
+L024570,2023-07-01,Industrials,revolving,secured,AA,740,10212724.0,0.6681,0.178815,High,4,Manual Review,1220076.36,0,test
+L017029,2022-06-01,Utilities,bond,unsecured,CCC,635,4354760.09,0.6695,0.417825,Very High,1,Manual Review,1218173.75,1,test
+L018779,2023-05-01,Healthcare,revolving,unsecured,B,639,8635506.59,0.6711,0.209933,High,2,Manual Review,1216622.29,0,test
+L039677,2022-05-01,Financials,revolving,secured,CCC,705,8625077.46,0.4314,0.32618,Very High,1,Manual Review,1213669.6,0,test
+L040634,2023-06-01,Technology,term_loan,unsecured,CCC,642,4583550.76,0.8652,0.30548,Very High,1,Manual Review,1211438.41,0,test
+L020528,2023-01-01,Telecom,mortgage,unsecured,BB,717,10344195.15,0.6165,0.18911,High,3,Manual Review,1205991.59,0,test
+L031869,2023-04-01,Real_Estate,term_loan,unsecured,B,699,16168707.24,0.3855,0.193116,High,3,Manual Review,1203699.1,0,test
+L023483,2023-11-01,Technology,term_loan,partially_secured,B,762,7350099.99,0.82,0.199592,High,3,Manual Review,1202957.35,0,test
+L008958,2022-04-01,Telecom,term_loan,secured,BB,664,12120072.08,0.4903,0.201093,High,3,Manual Review,1194989.39,0,test
+L001162,2023-06-01,Utilities,term_loan,unsecured,CCC,633,7558705.27,0.6314,0.250032,High,2,Manual Review,1193294.35,0,test
+L023105,2022-03-01,Telecom,revolving,unsecured,CCC,665,4594757.86,0.6944,0.373263,Very High,1,Manual Review,1190932.87,1,test
+L025858,2023-09-01,Healthcare,term_loan,secured,CCC,674,7666923.58,0.4018,0.386387,Very High,1,Manual Review,1190292.16,0,test
+L013822,2023-05-01,Telecom,term_loan,unsecured,B,637,12302895.62,0.4748,0.203714,High,2,Manual Review,1189977.98,0,test
+L027270,2023-08-01,Financials,mortgage,unsecured,CCC,632,5227016.72,0.553,0.409064,Very High,1,Manual Review,1182415.96,1,test
+L041647,2023-09-01,Utilities,bond,partially_secured,BB,695,10825789.5,0.5707,0.189498,High,3,Manual Review,1170771.34,0,test
+L008551,2022-08-01,Technology,mortgage,secured,CCC,624,5054431.15,0.5714,0.401956,Very High,1,Manual Review,1160889.91,1,test
+L032036,2023-02-01,Telecom,term_loan,unsecured,CCC,673,5620253.1,0.5799,0.355502,Very High,1,Manual Review,1158646.71,0,test
+L043472,2022-02-01,Utilities,bond,unsecured,CCC,705,6342376.82,0.5495,0.332411,Very High,1,Manual Review,1158497.56,0,test
+L030006,2023-07-01,Financials,term_loan,partially_secured,B,687,7030699.85,0.6785,0.242575,High,2,Manual Review,1157162.76,0,test
+L044036,2022-11-01,Real_Estate,revolving,unsecured,CCC,658,5522402.97,0.5655,0.370268,Very High,1,Manual Review,1156316.93,1,test
+L038227,2023-06-01,Technology,term_loan,unsecured,BB,753,8268879.06,0.7635,0.183136,High,3,Manual Review,1156190.52,0,test
+L009105,2022-08-01,Telecom,term_loan,partially_secured,CCC,630,4104798.03,0.616,0.455987,Very High,1,Manual Review,1152988.48,1,test
+L016325,2022-04-01,Energy,revolving,partially_secured,CCC,647,4285536.5,0.6259,0.429371,Very High,1,Manual Review,1151709.26,0,test
+L010126,2022-06-01,Technology,term_loan,partially_secured,CCC,643,4060757.07,0.6883,0.41035,Very High,1,Manual Review,1146936.08,0,test
+L040907,2023-12-01,Industrials,mortgage,partially_secured,CCC,669,4000099.22,0.6208,0.454266,Very High,1,Manual Review,1128061.31,0,test
+L029660,2022-01-01,Real_Estate,revolving,partially_secured,CCC,706,6279522.33,0.6547,0.274217,High,1,Manual Review,1127361.83,0,test
+L002816,2022-03-01,Energy,lease,unsecured,BB,711,8508869.44,0.7391,0.177793,High,4,Manual Review,1118123.36,0,test
+L016786,2022-03-01,Technology,term_loan,unsecured,CCC,639,4373603.32,0.6509,0.392293,Very High,1,Manual Review,1116771.24,0,test
+L045165,2022-04-01,Utilities,term_loan,secured,BB,611,11894146.05,0.4942,0.189661,High,3,Manual Review,1114843.85,0,test
+L025006,2022-03-01,Technology,bond,unsecured,B,597,5542341.17,0.8752,0.229343,High,2,Manual Review,1112464.23,0,test
+L019052,2023-04-01,Telecom,bond,secured,BB,659,15967130.97,0.3979,0.17433,High,4,Manual Review,1107574.52,1,test
+L040166,2023-03-01,Real_Estate,revolving,unsecured,BBB,680,11030374.72,0.5504,0.181956,High,3,Manual Review,1104676.39,0,test
+L017685,2023-01-01,Industrials,mortgage,unsecured,CCC,612,4999777.16,0.5121,0.430598,Very High,1,Manual Review,1102497.04,1,test
+L043803,2022-10-01,Energy,term_loan,partially_secured,BB,632,12129712.92,0.4957,0.182917,High,3,Manual Review,1099824.81,0,test
+L048918,2022-04-01,Energy,term_loan,unsecured,BB,681,8272720.55,0.7195,0.18465,High,3,Manual Review,1099077.87,0,test
+L000987,2022-10-01,Utilities,bond,unsecured,CCC,659,4847100.95,0.5526,0.410156,Very High,1,Manual Review,1098606.12,0,test
+L049125,2023-07-01,Energy,term_loan,unsecured,BB,689,9324046.26,0.6792,0.173451,High,4,Manual Review,1098446.49,0,test
+L024519,2022-09-01,Telecom,revolving,unsecured,B,699,8213591.82,0.6488,0.205465,High,2,Manual Review,1094918.54,0,test
+L035276,2022-10-01,Financials,lease,unsecured,CCC,640,4761280.08,0.5209,0.441405,Very High,1,Manual Review,1094750.96,0,test
+L049918,2023-07-01,Technology,mortgage,secured,B,645,9794318.31,0.5262,0.211793,High,2,Manual Review,1091532.47,0,test
+L000738,2022-10-01,Financials,bond,secured,A,691,12753945.53,0.4393,0.194327,High,3,Manual Review,1088776.92,0,test
+L038024,2023-01-01,Industrials,term_loan,partially_secured,BB,727,12674767.08,0.4796,0.178302,High,4,Manual Review,1083865.46,0,test
+L034919,2022-12-01,Real_Estate,term_loan,unsecured,BB,678,9675535.33,0.5636,0.198057,High,3,Manual Review,1080030.91,1,test
+L011061,2022-06-01,Telecom,term_loan,secured,CCC,675,5384250.75,0.4486,0.446676,Very High,1,Manual Review,1078889.99,1,test
+L006607,2023-04-01,Utilities,revolving,partially_secured,CCC,614,5206221.28,0.4882,0.424226,Very High,1,Manual Review,1078245.56,1,test
+L015362,2023-06-01,Real_Estate,term_loan,secured,BB,709,16847705.73,0.3149,0.202556,High,3,Manual Review,1074628.96,0,test
+L041194,2023-07-01,Industrials,term_loan,partially_secured,B,652,7117354.83,0.555,0.269784,High,1,Manual Review,1065682.39,0,test
+L021583,2022-07-01,Real_Estate,mortgage,unsecured,B,616,6770130.98,0.706,0.222646,High,2,Manual Review,1064183.86,0,test
+L024458,2023-04-01,Real_Estate,revolving,secured,CCC,620,9161792.83,0.2872,0.400982,Very High,1,Manual Review,1055090.66,0,test
+L022345,2022-03-01,Retail,mortgage,unsecured,B,667,5824434.15,0.7916,0.228289,High,2,Manual Review,1052554.3,0,test
+L005512,2023-06-01,Industrials,term_loan,unsecured,CCC,677,2873753.2,0.9022,0.405488,Very High,1,Manual Review,1051308.79,0,test
+L024380,2023-06-01,Financials,bond,secured,B,724,15405786.6,0.3507,0.193949,High,3,Manual Review,1047869.47,0,test
+L032738,2022-12-01,Energy,term_loan,secured,CCC,629,5153700.73,0.5024,0.404179,Very High,1,Manual Review,1046508.05,0,test
+L031999,2023-10-01,Healthcare,revolving,unsecured,CCC,669,5652352.9,0.6688,0.276348,High,1,Manual Review,1044676.58,0,test
+L009546,2023-01-01,Real_Estate,term_loan,unsecured,CCC,617,5854270.48,0.5677,0.314315,Very High,1,Manual Review,1044616.27,0,test
+L045743,2022-01-01,Technology,term_loan,unsecured,CCC,692,4811246.11,0.7072,0.306333,Very High,1,Manual Review,1042302.09,1,test
+L048115,2023-07-01,Telecom,term_loan,secured,CCC,718,5383067.65,0.4817,0.401525,Very High,1,Manual Review,1041163.84,1,test
+L024267,2023-08-01,Financials,term_loan,unsecured,CCC,679,3429458.21,0.7246,0.418686,Very High,1,Manual Review,1040428.61,0,test
+L000636,2023-01-01,Healthcare,term_loan,partially_secured,BB,677,10538521.03,0.5245,0.18725,High,3,Manual Review,1035015.81,0,test
+L042431,2023-07-01,Real_Estate,mortgage,secured,CCC,627,9927588.02,0.3421,0.304209,Very High,1,Manual Review,1033163.08,1,test
+L011863,2022-07-01,Telecom,mortgage,secured,CCC,655,6359321.66,0.4702,0.345107,Very High,1,Manual Review,1031922.75,0,test
+L033710,2023-06-01,Healthcare,mortgage,unsecured,BB,700,6980385.13,0.7999,0.184485,High,3,Manual Review,1030092.3,0,test
+L021915,2023-05-01,Technology,mortgage,unsecured,CCC,649,2893865.39,0.8047,0.44224,Very High,1,Manual Review,1029841.4,0,test
+L014975,2022-11-01,Energy,mortgage,unsecured,BB,682,7312193.43,0.7099,0.198279,High,3,Manual Review,1029251.64,0,test
+L049363,2022-04-01,Financials,term_loan,secured,B,657,7566639.41,0.4433,0.306293,Very High,1,Manual Review,1027395.93,0,test
+L010607,2023-11-01,Telecom,mortgage,partially_secured,CCC,721,4696642.84,0.6186,0.353484,Very High,1,Manual Review,1026992.36,0,test
+L046272,2022-08-01,Telecom,mortgage,partially_secured,BBB,727,8292112.29,0.7169,0.172677,High,4,Manual Review,1026498.34,0,test
+L026012,2022-10-01,Real_Estate,term_loan,partially_secured,CCC,677,3905023.45,0.6076,0.430648,Very High,1,Manual Review,1021795.17,0,test
+L001374,2023-07-01,Financials,mortgage,secured,B,686,8615637.06,0.5027,0.235751,High,2,Manual Review,1021056.62,0,test
+L049619,2022-12-01,Utilities,revolving,unsecured,CCC,672,3161383.3,0.7245,0.442721,Very High,1,Manual Review,1014018.01,0,test
+L046713,2023-01-01,Utilities,mortgage,partially_secured,BB,679,9814731.44,0.492,0.209788,High,2,Manual Review,1013034.34,0,test
+L029847,2022-03-01,Consumer,term_loan,unsecured,B,672,5937507.07,0.8358,0.203883,High,2,Manual Review,1011783.33,0,test
+L026344,2022-03-01,Financials,term_loan,partially_secured,BB,718,8407434.47,0.6865,0.175223,High,4,Manual Review,1011335.25,0,test
+L028057,2022-06-01,Energy,term_loan,secured,CCC,654,5352622.2,0.433,0.435436,Very High,1,Manual Review,1009203.67,1,test
+L000178,2023-07-01,Utilities,revolving,partially_secured,CCC,649,5916711.21,0.4638,0.366781,Very High,1,Manual Review,1006509.66,0,test
+L011335,2022-03-01,Energy,bond,partially_secured,BB,688,9560254.9,0.5639,0.18655,High,3,Manual Review,1005696.22,0,test
+L010952,2022-01-01,Real_Estate,term_loan,secured,CCC,671,6584915.71,0.4483,0.339267,Very High,1,Manual Review,1001522.19,0,test
+L048611,2023-10-01,Industrials,mortgage,partially_secured,B,634,13229167.15,0.4434,0.17064,High,4,Manual Review,1000942.28,0,test
+L047356,2023-12-01,Telecom,mortgage,partially_secured,CCC,624,2789825.64,0.8102,0.442426,Very High,1,Manual Review,1000022.89,1,test
+L024273,2023-06-01,Utilities,mortgage,unsecured,CCC,677,4918883.76,0.5583,0.362703,Very High,1,Manual Review,996059.62,0,test
+L015495,2023-07-01,Technology,bond,secured,BB,633,16721457.78,0.3458,0.172251,High,4,Manual Review,996003.53,0,test
+L044408,2022-05-01,Energy,mortgage,partially_secured,B,685,8669309.23,0.6685,0.171093,High,4,Manual Review,991558.06,0,test
+L029815,2022-03-01,Energy,term_loan,unsecured,B,627,5952300.02,0.6607,0.252014,High,2,Manual Review,991091.58,1,test
+L007026,2023-11-01,Real_Estate,revolving,partially_secured,B,673,11419335.58,0.4784,0.181358,High,3,Manual Review,990760.59,0,test
+L039415,2022-12-01,Financials,mortgage,unsecured,BB,690,7103144.78,0.6947,0.200768,High,3,Manual Review,990700.67,0,test
+L029902,2023-04-01,Energy,term_loan,partially_secured,B,678,7021392.84,0.6037,0.233568,High,2,Manual Review,990051.51,1,test
+L001877,2023-04-01,Real_Estate,term_loan,secured,CCC,590,8141010.78,0.3045,0.398808,Very High,1,Manual Review,988620.22,0,test
+L006045,2022-08-01,Technology,lease,partially_secured,A,737,7296624.93,0.7682,0.176291,High,4,Manual Review,988158.17,0,test
+L015917,2023-08-01,Telecom,bond,secured,BB,679,11453099.75,0.4729,0.182291,High,3,Manual Review,987319.2,0,test
+L008201,2023-06-01,Real_Estate,term_loan,partially_secured,B,656,10768736.83,0.4162,0.219537,High,2,Manual Review,983953.48,0,test
+L008566,2022-12-01,Technology,term_loan,partially_secured,B,688,5567051.81,0.6468,0.273094,High,1,Manual Review,983348.44,1,test
+L028192,2023-06-01,Utilities,revolving,partially_secured,B,640,7273005.85,0.5202,0.259646,High,2,Manual Review,982349.26,1,test
+L044203,2023-11-01,Financials,mortgage,secured,B,703,12023621.63,0.4159,0.196433,High,3,Manual Review,982287.62,0,test
+L048185,2022-05-01,Energy,term_loan,unsecured,CCC,605,5843594.34,0.5222,0.321299,Very High,1,Manual Review,980451.92,0,test
+L038936,2023-12-01,Utilities,term_loan,unsecured,B,743,9110246.98,0.625,0.171962,High,4,Manual Review,979135.18,1,test
+L038271,2023-06-01,Industrials,term_loan,unsecured,BB,657,6350993.85,0.7675,0.20083,High,3,Manual Review,978923.3,0,test
+L048674,2022-06-01,Energy,term_loan,unsecured,CCC,722,5694457.73,0.6383,0.268433,High,2,Manual Review,975692.85,0,test
+L037431,2022-10-01,Real_Estate,mortgage,unsecured,CCC,639,4004313.14,0.5822,0.418125,Very High,1,Manual Review,974779.46,1,test
+L020518,2023-11-01,Utilities,bond,unsecured,CCC,631,5080825.22,0.7426,0.25815,High,2,Manual Review,974005.32,0,test
+L034215,2023-12-01,Real_Estate,lease,secured,BB,641,13248830.21,0.4237,0.17341,High,4,Manual Review,973442.13,0,test
+L003341,2023-11-01,Financials,bond,unsecured,BB,706,10309891.41,0.5144,0.183499,High,3,Manual Review,973170.09,0,test
+L016317,2023-03-01,Consumer,term_loan,partially_secured,B,658,6277690.06,0.5917,0.259309,High,2,Manual Review,963205.67,0,test
+L025798,2023-01-01,Real_Estate,bond,partially_secured,B,667,9160374.54,0.4621,0.227171,High,2,Manual Review,961616.9,1,test
+L044945,2022-07-01,Energy,lease,unsecured,BB,708,7374976.58,0.6343,0.205371,High,2,Manual Review,960714.79,0,test
+L026808,2022-08-01,Industrials,bond,unsecured,BB,722,7525416.61,0.7071,0.179376,High,3,Manual Review,954499.53,0,test
+L027092,2023-07-01,Financials,term_loan,unsecured,BB,665,6154108.19,0.7805,0.198694,High,3,Manual Review,954383.2,0,test
+L027788,2022-08-01,Healthcare,mortgage,unsecured,B,680,8106620.27,0.5971,0.197118,High,3,Manual Review,954142.38,0,test
+L025221,2023-12-01,Real_Estate,mortgage,unsecured,CCC,622,4268206.72,0.5411,0.412921,Very High,1,Manual Review,953652.06,1,test
+L036611,2022-10-01,Utilities,term_loan,partially_secured,BB,720,12104533.72,0.4223,0.186539,High,3,Manual Review,953539.72,0,test
+L015146,2023-05-01,Healthcare,mortgage,unsecured,CCC,631,3152239.74,0.7165,0.421748,Very High,1,Manual Review,952551.5,1,test
+L038946,2022-08-01,Telecom,mortgage,unsecured,CCC,687,4845326.54,0.5538,0.354519,Very High,1,Manual Review,951295.67,1,test
+L023338,2023-04-01,Technology,revolving,secured,B,667,7923525.98,0.622,0.192791,High,3,Manual Review,950157.56,0,test
+L022924,2022-10-01,Real_Estate,revolving,unsecured,B,681,6259167.7,0.5982,0.253289,High,2,Manual Review,948373.32,1,test
+L040219,2022-12-01,Energy,mortgage,secured,CCC,593,9994407.84,0.2818,0.336456,Very High,1,Manual Review,947602.8,0,test
+L010186,2022-02-01,Real_Estate,term_loan,partially_secured,B,654,8030688.49,0.4704,0.250384,High,2,Manual Review,945859.58,0,test
+L006117,2023-02-01,Telecom,bond,unsecured,B,627,5565259.92,0.6841,0.248327,High,2,Manual Review,945429.14,0,test
+L035201,2022-07-01,Healthcare,lease,unsecured,CCC,670,3744933.81,0.5379,0.467378,Very High,1,Manual Review,941486.19,1,test
+L036122,2022-09-01,Energy,mortgage,secured,CCC,693,11791683.98,0.3611,0.220857,High,2,Manual Review,940404.05,1,test
+L042012,2023-02-01,Telecom,revolving,secured,BBB,747,14809720.67,0.3584,0.177123,High,4,Manual Review,940134.15,0,test
+L014536,2023-03-01,Real_Estate,mortgage,partially_secured,B,700,6415139.01,0.6292,0.230691,High,2,Manual Review,931162.41,0,test
+L036410,2023-03-01,Healthcare,revolving,unsecured,CCC,634,3433709.35,0.6894,0.390178,Very High,1,Manual Review,923629.06,1,test
+L027292,2022-05-01,Utilities,bond,unsecured,BB,729,8225347.18,0.5872,0.190686,High,3,Manual Review,920998.86,0,test
+L016706,2023-11-01,Technology,mortgage,secured,CCC,710,5271127.91,0.4737,0.368293,Very High,1,Manual Review,919603.05,1,test
+L009598,2022-07-01,Real_Estate,term_loan,unsecured,CCC,669,3503527.14,0.5772,0.454686,Very High,1,Manual Review,919482.34,0,test
+L012130,2022-09-01,Financials,term_loan,partially_secured,CCC,640,4308487.64,0.5947,0.358296,Very High,1,Manual Review,918046.65,0,test
+L043526,2023-10-01,Telecom,mortgage,unsecured,B,694,6211342.41,0.764,0.192812,High,3,Manual Review,914982.71,0,test
+L027340,2022-10-01,Real_Estate,mortgage,secured,B,663,8379300.19,0.466,0.233918,High,2,Manual Review,913392.22,0,test
+L008449,2023-03-01,Real_Estate,lease,unsecured,B,617,6290662.33,0.5406,0.268472,High,2,Manual Review,913001.34,0,test
+L027636,2022-02-01,Real_Estate,term_loan,secured,B,713,10641634.24,0.4258,0.201411,High,3,Manual Review,912635.11,0,test
+L040456,2023-05-01,Industrials,term_loan,secured,CCC,621,4530567.28,0.4433,0.45396,Very High,1,Manual Review,911733.48,1,test
+L019884,2022-08-01,Industrials,mortgage,secured,BB,705,9564437.67,0.5008,0.19023,High,3,Manual Review,911177.04,0,test
+L005623,2023-12-01,Technology,revolving,partially_secured,CCC,574,3704815.52,0.7215,0.338849,Very High,1,Manual Review,905751.64,0,test
+L025227,2022-01-01,Real_Estate,bond,partially_secured,CCC,608,4673574.53,0.5327,0.362296,Very High,1,Manual Review,901976.89,1,test
+L009898,2022-10-01,Financials,mortgage,unsecured,B,707,8081750.38,0.5347,0.208454,High,2,Manual Review,900794.76,1,test
+L020712,2023-01-01,Healthcare,term_loan,unsecured,BB,693,9338510.4,0.5267,0.182955,High,3,Manual Review,899881.26,0,test
+L029185,2023-10-01,Industrials,term_loan,unsecured,BB,711,9158646.1,0.5718,0.171622,High,4,Manual Review,898769.63,0,test
+L009050,2022-12-01,Telecom,bond,unsecured,B,659,4100123.11,0.8008,0.273409,High,1,Manual Review,897705.26,0,test
+L024087,2022-12-01,Financials,revolving,unsecured,BBB,733,8771147.47,0.5931,0.171887,High,4,Manual Review,894184.98,0,test
+L013924,2023-02-01,Industrials,bond,unsecured,BBB,695,7468862.84,0.6896,0.17331,High,4,Manual Review,892637.98,0,test
+L008183,2022-10-01,Industrials,term_loan,unsecured,CCC,727,3642617.57,0.6305,0.388546,Very High,1,Manual Review,892362.09,0,test
+L026988,2022-06-01,Real_Estate,mortgage,unsecured,B,605,7082632.24,0.5573,0.225694,High,2,Manual Review,890848.29,0,test
+L037187,2022-04-01,Telecom,revolving,partially_secured,BB,698,9771064.42,0.5016,0.181448,High,3,Manual Review,889306.75,0,test
+L010710,2023-02-01,Industrials,revolving,partially_secured,B,629,4927888.91,0.7193,0.249815,High,2,Manual Review,885501.87,1,test
+L038152,2023-12-01,Industrials,bond,unsecured,CCC,665,3370334.16,0.8185,0.320346,Very High,1,Manual Review,883712.41,0,test
+L028479,2023-10-01,Industrials,bond,unsecured,B,616,6867726.41,0.4891,0.262772,High,2,Manual Review,882652.46,0,test
+L046876,2022-03-01,Consumer,term_loan,partially_secured,CCC,661,3088780.27,0.8013,0.356546,Very High,1,Manual Review,882465.48,0,test
+L000480,2023-11-01,Energy,revolving,unsecured,BB,695,6175493.39,0.7419,0.19258,High,3,Manual Review,882324.25,1,test
+L028256,2023-05-01,Energy,term_loan,unsecured,BB,688,8218973.52,0.5543,0.193453,High,3,Manual Review,881328.73,0,test
+L012016,2022-11-01,Energy,term_loan,unsecured,BBB,759,7749819.59,0.6173,0.184046,High,3,Manual Review,880469.37,0,test
+L034123,2023-07-01,Utilities,term_loan,secured,BB,755,11359055.56,0.4434,0.174766,High,4,Manual Review,880227.35,0,test
+L033109,2023-06-01,Real_Estate,term_loan,secured,CCC,638,6393233.23,0.3453,0.398411,Very High,1,Manual Review,879525.52,1,test
+L014740,2023-03-01,Real_Estate,mortgage,secured,CCC,627,7396485.65,0.3003,0.395592,Very High,1,Manual Review,878674.96,1,test
+L037095,2022-02-01,Financials,term_loan,partially_secured,B,691,8550895.1,0.5029,0.204177,High,2,Manual Review,878011.15,0,test
+L030625,2023-10-01,Consumer,term_loan,secured,CCC,688,3111677.1,0.6798,0.414696,Very High,1,Manual Review,877213.95,0,test
+L034416,2023-10-01,Energy,revolving,secured,CCC,648,6422093.27,0.3323,0.409623,Very High,1,Manual Review,874160.71,0,test
+L033716,2022-12-01,Telecom,revolving,secured,B,653,5936994.29,0.5808,0.252535,High,2,Manual Review,870792.77,0,test
+L040808,2022-01-01,Telecom,mortgage,secured,CCC,619,4904741.37,0.4742,0.374385,Very High,1,Manual Review,870755.25,1,test
+L049832,2022-03-01,Financials,term_loan,unsecured,B,612,6629707.01,0.5822,0.225339,High,2,Manual Review,869766.95,1,test
+L035587,2023-12-01,Financials,bond,secured,BB,683,13626644.93,0.3497,0.182197,High,3,Manual Review,868212.02,0,test
+L000385,2022-02-01,Industrials,term_loan,unsecured,CCC,630,7274672.91,0.6193,0.19259,High,3,Manual Review,867657.42,0,test
+L040472,2023-07-01,Telecom,mortgage,secured,BBB,721,8842034.64,0.5087,0.192112,High,3,Manual Review,864108.83,0,test
+L020358,2023-05-01,Financials,term_loan,secured,B,683,7106409.21,0.5055,0.24031,High,2,Manual Review,863263.18,0,test
+L006438,2022-04-01,Financials,revolving,unsecured,B,669,5939848.97,0.6277,0.231268,High,2,Manual Review,862269.6,0,test
+L032886,2022-11-01,Financials,revolving,unsecured,CCC,661,2560551.2,0.7586,0.443133,Very High,1,Manual Review,860756.67,0,test
+L036795,2022-11-01,Technology,term_loan,unsecured,B,682,5548923.87,0.568,0.27307,High,1,Manual Review,860658.96,0,test
+L037805,2022-04-01,Energy,mortgage,secured,CCC,621,5899302.38,0.4542,0.320266,Very High,1,Manual Review,858140.94,0,test
+L010317,2022-04-01,Technology,term_loan,secured,CCC,645,3766776.28,0.6733,0.338247,Very High,1,Manual Review,857852.05,0,test
+L039963,2022-12-01,Industrials,revolving,unsecured,BB,682,5198472.59,0.8351,0.197032,High,3,Manual Review,855364.08,0,test
+L043832,2022-11-01,Telecom,revolving,secured,B,703,10284006.99,0.4785,0.173207,High,4,Manual Review,852333.87,0,test
+L039362,2022-08-01,Real_Estate,mortgage,unsecured,B,650,7472342.23,0.4568,0.249119,High,2,Manual Review,850334.31,1,test
+L030569,2022-11-01,Retail,mortgage,unsecured,B,619,3660886.32,0.8099,0.286332,High,1,Manual Review,848960.59,0,test
+L031435,2023-05-01,Telecom,mortgage,partially_secured,B,694,7408275.97,0.5718,0.200177,High,3,Manual Review,847960.22,0,test
+L041715,2022-12-01,Financials,mortgage,unsecured,B,638,8605091.71,0.5459,0.179752,High,3,Manual Review,844388.54,0,test
+L004995,2023-01-01,Energy,revolving,unsecured,CCC,638,3013588.62,0.6502,0.430862,Very High,1,Manual Review,844246.22,1,test
+L045017,2023-09-01,Consumer,mortgage,partially_secured,B,662,6362550.49,0.5099,0.25974,High,2,Manual Review,842665.26,0,test
+L010727,2023-09-01,Retail,term_loan,partially_secured,B,650,5532264.56,0.573,0.265528,High,2,Manual Review,841720.47,0,test
+L042274,2023-08-01,Real_Estate,mortgage,unsecured,CCC,678,3102899.89,0.6835,0.396358,Very High,1,Manual Review,840608.76,0,test
+L026501,2023-08-01,Real_Estate,bond,unsecured,B,649,7307273.19,0.5112,0.225017,High,2,Manual Review,840546.07,0,test
+L022006,2023-02-01,Retail,revolving,partially_secured,B,680,5616440.87,0.6868,0.217816,High,2,Manual Review,840197.25,0,test
+L028795,2023-05-01,Telecom,term_loan,unsecured,BBB,757,6938666.71,0.6775,0.177117,High,4,Manual Review,832617.58,1,test
+L012254,2023-03-01,Real_Estate,bond,secured,CCC,675,8315049.58,0.2367,0.42269,Very High,1,Manual Review,831926.72,1,test
+L038280,2022-09-01,Telecom,term_loan,unsecured,CCC,661,3460704.44,0.6128,0.39175,Very High,1,Manual Review,830791.93,1,test
+L005936,2022-05-01,Utilities,mortgage,secured,CCC,660,3876303.56,0.4764,0.447843,Very High,1,Manual Review,827018.69,1,test
+L011611,2023-12-01,Telecom,revolving,secured,CCC,669,2948735.43,0.6692,0.41902,Very High,1,Manual Review,826849.55,1,test
+L049047,2023-10-01,Telecom,bond,secured,CCC,607,6326702.82,0.3244,0.402264,Very High,1,Manual Review,825599.55,0,test
+L021439,2023-08-01,Utilities,term_loan,partially_secured,B,694,7095359.78,0.6374,0.181152,High,3,Manual Review,819274.83,0,test
+L043979,2022-04-01,Technology,mortgage,secured,B,683,5910399.25,0.6855,0.202185,High,3,Manual Review,819168.44,0,test
+L047012,2023-12-01,Consumer,mortgage,unsecured,BBB,668,7980156.18,0.5854,0.175347,High,4,Manual Review,819148.14,0,test
+L014044,2023-02-01,Industrials,revolving,unsecured,CCC,633,3937612.01,0.4749,0.436197,Very High,1,Manual Review,815676.15,1,test
+L029475,2022-02-01,Financials,mortgage,partially_secured,CCC,622,4214663.61,0.5057,0.381197,Very High,1,Manual Review,812466.28,0,test
+L040720,2022-05-01,Financials,term_loan,secured,BB,728,7247099.53,0.5934,0.1884,High,3,Manual Review,810200.8,0,test
+L011300,2022-11-01,Energy,mortgage,partially_secured,BB,768,10863054.06,0.4296,0.173586,High,4,Manual Review,810085.59,0,test
+L039456,2023-10-01,Financials,mortgage,secured,CCC,670,8435339.7,0.2485,0.385547,Very High,1,Manual Review,808176.65,0,test
+L007932,2022-04-01,Technology,term_loan,partially_secured,B,634,4171845.75,0.728,0.265378,High,2,Manual Review,805980.51,0,test
+L025152,2022-08-01,Energy,term_loan,secured,CCC,654,5695272.66,0.4397,0.321809,Very High,1,Manual Review,805877.76,0,test
+L042201,2023-05-01,Industrials,term_loan,unsecured,B,643,5827288.01,0.6044,0.22778,High,2,Manual Review,802244.09,0,test
+L014989,2022-08-01,Energy,revolving,secured,CCC,646,4234787.37,0.4442,0.425503,Very High,1,Manual Review,800410.52,1,test
+L004441,2022-05-01,Industrials,revolving,partially_secured,CCC,653,6408331.58,0.4201,0.296829,High,1,Manual Review,799105.25,0,test
+L007476,2022-06-01,Utilities,term_loan,unsecured,CCC,661,3471178.98,0.6025,0.381665,Very High,1,Manual Review,798208.58,0,test
+L039256,2023-12-01,Utilities,revolving,secured,A,675,10704273.21,0.4081,0.182593,High,3,Manual Review,797641.8,0,test
+L004006,2022-11-01,Financials,bond,unsecured,B,645,5752751.38,0.6132,0.22555,High,2,Manual Review,795647.28,1,test
+L028996,2023-06-01,Energy,bond,unsecured,BBB,725,6948444.89,0.6546,0.17403,High,4,Manual Review,791567.11,0,test
+L038008,2023-07-01,Energy,mortgage,unsecured,CCC,690,3315972.53,0.6861,0.346869,Very High,1,Manual Review,789157.76,0,test
+L035320,2023-03-01,Financials,bond,secured,B,730,6624420.42,0.5333,0.22322,High,2,Manual Review,788592.38,0,test
+L043044,2022-01-01,Technology,bond,secured,B,648,7778915.08,0.4617,0.219516,High,2,Manual Review,788397.22,0,test
+L024885,2023-01-01,Telecom,term_loan,secured,B,668,6024604.24,0.4844,0.270142,High,1,Manual Review,788360.34,1,test
+L026794,2023-07-01,Energy,revolving,unsecured,CCC,637,3519985.43,0.5082,0.440472,Very High,1,Manual Review,787941.24,0,test
+L011248,2022-05-01,Consumer,term_loan,secured,B,669,5396719.55,0.7328,0.19891,High,3,Manual Review,786632.58,0,test
+L013676,2022-02-01,Energy,mortgage,partially_secured,CCC,611,2825037.85,0.7324,0.380113,Very High,1,Manual Review,786475.74,1,test
+L048093,2022-12-01,Industrials,bond,unsecured,BB,699,6270978.96,0.6813,0.184052,High,3,Manual Review,786347.07,0,test
+L043000,2022-02-01,Technology,term_loan,partially_secured,CCC,612,2527900.84,0.8681,0.358019,Very High,1,Manual Review,785662.21,1,test
+L048661,2022-07-01,Healthcare,mortgage,unsecured,CCC,701,3012408.61,0.6079,0.428183,Very High,1,Manual Review,784107.2,0,test
+L021900,2022-09-01,Healthcare,term_loan,unsecured,CCC,656,3372075.26,0.5892,0.394083,Very High,1,Manual Review,782974.64,1,test
+L010563,2023-08-01,Financials,term_loan,secured,BB,759,8062734.74,0.5402,0.179515,High,3,Manual Review,781875.66,0,test
+L031619,2022-11-01,Technology,mortgage,secured,CCC,664,1958492.5,0.8739,0.45597,Very High,1,Manual Review,780404.78,1,test
+L042638,2022-05-01,Real_Estate,term_loan,partially_secured,CCC,672,5388085.51,0.399,0.362977,Very High,1,Manual Review,780344.69,0,test
+L035809,2022-02-01,Industrials,revolving,partially_secured,B,624,7004573.87,0.5718,0.194012,High,3,Manual Review,777059.84,1,test
+L041218,2022-10-01,Industrials,mortgage,unsecured,CCC,661,3071098.3,0.6345,0.398736,Very High,1,Manual Review,776981.7,1,test
+L002635,2023-08-01,Utilities,term_loan,secured,BBB,738,15960626.11,0.2786,0.173223,High,4,Manual Review,770258.66,0,test
+L024163,2023-05-01,Telecom,bond,unsecured,BB,692,5518610.85,0.8052,0.173324,High,4,Manual Review,770180.01,0,test
+L000606,2023-03-01,Healthcare,revolving,unsecured,B,711,5695829.23,0.579,0.233367,High,2,Manual Review,769617.56,0,test
+L034532,2022-11-01,Energy,term_loan,unsecured,AA,754,6082967.48,0.729,0.173298,High,4,Manual Review,768487.09,0,test
+L032423,2022-02-01,Financials,bond,secured,B,715,7640145.24,0.4892,0.205522,High,2,Manual Review,768150.61,0,test
+L048152,2023-08-01,Utilities,term_loan,secured,B,626,5552187.49,0.5808,0.236825,High,2,Manual Review,763692.06,1,test
+L042723,2022-07-01,Financials,lease,secured,BB,676,7709302.7,0.5101,0.193855,High,3,Manual Review,762337.75,1,test
+L002648,2022-02-01,Utilities,mortgage,partially_secured,CCC,601,3835742.88,0.5783,0.342887,Very High,1,Manual Review,760595.41,1,test
+L004945,2022-12-01,Healthcare,term_loan,secured,BBB,739,10270408.54,0.4065,0.182143,High,3,Manual Review,760432.65,0,test
+L042625,2023-06-01,Utilities,revolving,partially_secured,B,686,4171995.44,0.6704,0.27162,High,1,Manual Review,759695.54,0,test
+L041314,2023-11-01,Telecom,bond,unsecured,AA,757,7851481.59,0.554,0.173618,High,4,Manual Review,755189.83,0,test
+L004564,2023-05-01,Telecom,term_loan,secured,B,657,12658749.77,0.2811,0.212178,High,2,Manual Review,755008.8,0,test
+L010382,2023-05-01,Retail,term_loan,unsecured,BB,646,5430662.45,0.7255,0.191357,High,3,Manual Review,753936.17,0,test
+L001996,2023-07-01,Industrials,mortgage,secured,B,714,6024118.28,0.5085,0.244985,High,2,Manual Review,750453.77,0,test
+L026704,2023-12-01,Telecom,term_loan,secured,BBB,708,6992780.21,0.595,0.179985,High,3,Manual Review,748864.35,0,test
+L022975,2023-11-01,Telecom,term_loan,unsecured,AA,713,6100074.85,0.7034,0.174264,High,4,Manual Review,747730.69,0,test
+L011878,2023-07-01,Financials,term_loan,unsecured,B,699,7402650.11,0.5909,0.170923,High,4,Manual Review,747655.82,0,test
+L045316,2022-04-01,Technology,term_loan,secured,CCC,688,3861417.8,0.6025,0.321335,Very High,1,Manual Review,747587.23,0,test
+L032170,2022-12-01,Utilities,term_loan,secured,BB,667,8963514.97,0.3794,0.219454,High,2,Manual Review,746309.85,0,test
+L003208,2023-06-01,Real_Estate,bond,unsecured,B,681,5510494.97,0.6543,0.206738,High,2,Manual Review,745397.34,1,test
+L015515,2023-04-01,Consumer,bond,unsecured,CCC,574,2083944.21,0.8101,0.441098,Very High,1,Manual Review,744663.06,1,test
+L026098,2023-11-01,Industrials,term_loan,secured,B,666,7433224.69,0.369,0.271221,High,1,Manual Review,743921.21,0,test
+L038901,2023-09-01,Technology,term_loan,unsecured,BBB,673,5677307.38,0.7572,0.172763,High,4,Manual Review,742683.46,0,test
+L024596,2023-04-01,Technology,revolving,secured,BB,682,8168651.75,0.4374,0.207706,High,2,Manual Review,742126.95,0,test
+L045197,2022-07-01,Financials,revolving,unsecured,BB,689,5804707.59,0.6008,0.212598,High,2,Manual Review,741428.79,0,test
+L009433,2022-05-01,Retail,mortgage,secured,CCC,650,3142006.74,0.5446,0.433285,Very High,1,Manual Review,741409.94,0,test

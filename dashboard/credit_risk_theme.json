@@ -1,0 +1,79 @@
+{
+  "name": "Credit Risk Portfolio",
+  "dataColors": [
+    "#1F4E78",
+    "#20A4F3",
+    "#2CB67D",
+    "#F4B942",
+    "#D64550",
+    "#7A6FF0",
+    "#5F6B7A",
+    "#9AC7E5"
+  ],
+  "background": "#F5F7FA",
+  "foreground": "#17212B",
+  "tableAccent": "#1F4E78",
+  "good": "#2CB67D",
+  "neutral": "#F4B942",
+  "bad": "#D64550",
+  "maximum": "#D64550",
+  "center": "#F4B942",
+  "minimum": "#2CB67D",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 28,
+      "color": "#17212B"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 13,
+      "color": "#17212B"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#17212B"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#5F6B7A"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#D7DEE7" } },
+            "radius": 8
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": true,
+            "foreground": { "solid": { "color": "#5F6B7A" } }
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#F5F7FA" } },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

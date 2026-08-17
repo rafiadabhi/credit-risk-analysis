@@ -1,0 +1,2 @@
+loans,total_ead,defaults,observed_default_rate,existing_expected_loss,term_risk_loss_proxy,avg_credit_score,avg_model_probability,avg_existing_pd
+50000,164930233732.19,6950,0.139,1923786053.37,14295499240.339998,714.98256,0.16694637191999998,0.022461477779999996
