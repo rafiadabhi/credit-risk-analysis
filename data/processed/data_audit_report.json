@@ -1,0 +1,664 @@
+{
+  "source_audit": {
+    "loans": {
+      "rows": 50000,
+      "columns": 24,
+      "duplicate_rows": 0,
+      "missing_values": {
+        "default_date": 43050,
+        "recovery_rate": 43050,
+        "loss_given_default": 43050
+      },
+      "data_types": {
+        "loan_id": "object",
+        "origination_date": "datetime64[ns]",
+        "maturity_date": "datetime64[ns]",
+        "maturity_months": "int64",
+        "sector": "object",
+        "loan_type": "object",
+        "collateral": "object",
+        "initial_rating": "object",
+        "credit_score": "int64",
+        "ead": "float64",
+        "coupon_rate": "float64",
+        "leverage": "float64",
+        "interest_coverage": "float64",
+        "debt_to_equity": "float64",
+        "pd_annual": "float64",
+        "lgd": "float64",
+        "el": "float64",
+        "unexpected_loss": "float64",
+        "rwa": "float64",
+        "defaulted": "int64",
+        "default_date": "datetime64[ns]",
+        "survival_months": "int64",
+        "recovery_rate": "float64",
+        "loss_given_default": "float64"
+      },
+      "numeric_ranges": {
+        "maturity_months": {
+          "min": 12.0,
+          "max": 120.0,
+          "mean": 53.97048,
+          "median": 48.0
+        },
+        "credit_score": {
+          "min": 518.0,
+          "max": 850.0,
+          "mean": 714.98256,
+          "median": 715.0
+        },
+        "ead": {
+          "min": 50000.0,
+          "max": 361177782.72,
+          "mean": 3298604.6746438,
+          "median": 1389712.0150000001
+        },
+        "coupon_rate": {
+          "min": 1.0,
+          "max": 7.531,
+          "mean": 3.07908714,
+          "median": 3.0635000000000003
+        },
+        "leverage": {
+          "min": 0.5,
+          "max": 15.0,
+          "mean": 6.9137786,
+          "median": 6.08
+        },
+        "interest_coverage": {
+          "min": 0.5,
+          "max": 20.0,
+          "mean": 3.764089,
+          "median": 3.31
+        },
+        "debt_to_equity": {
+          "min": 0.1,
+          "max": 10.0,
+          "mean": 2.0908840000000004,
+          "median": 1.65
+        },
+        "pd_annual": {
+          "min": 0.000158,
+          "max": 0.242523,
+          "mean": 0.02246147778,
+          "median": 0.002788
+        },
+        "lgd": {
+          "min": 0.0918,
+          "max": 0.98,
+          "mean": 0.5465160099999999,
+          "median": 0.5448
+        },
+        "el": {
+          "min": 3.6,
+          "max": 6411410.04,
+          "mean": 38475.721067399994,
+          "median": 3587.83
+        },
+        "unexpected_loss": {
+          "min": 273.53,
+          "max": 22392122.74,
+          "mean": 181560.53490939998,
+          "median": 52059.935
+        },
+        "rwa": {
+          "min": 47.65,
+          "max": 84951183.01,
+          "mean": 509803.30451979995,
+          "median": 47538.745
+        },
+        "defaulted": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.139,
+          "median": 0.0
+        },
+        "survival_months": {
+          "min": 1.0,
+          "max": 120.0,
+          "mean": 49.12462,
+          "median": 48.0
+        },
+        "recovery_rate": {
+          "min": 0.02,
+          "max": 0.8578,
+          "mean": 0.45456227338129496,
+          "median": 0.4561
+        },
+        "loss_given_default": {
+          "min": 14330.0,
+          "max": 111326394.73,
+          "mean": 1713656.6742158271,
+          "median": 719818.225
+        }
+      },
+      "iqr_outlier_counts_descriptive_only": {
+        "maturity_months": 4022,
+        "credit_score": 78,
+        "ead": 5022,
+        "coupon_rate": 465,
+        "leverage": 0,
+        "interest_coverage": 1928,
+        "debt_to_equity": 2719,
+        "pd_annual": 11928,
+        "lgd": 86,
+        "el": 7346,
+        "unexpected_loss": 5708,
+        "rwa": 7346,
+        "defaulted": 6950,
+        "survival_months": 3200,
+        "recovery_rate": 11,
+        "loss_given_default": 703
+      },
+      "date_ranges": {
+        "origination_date": {
+          "min": "2015-01-01",
+          "max": "2023-12-01"
+        },
+        "maturity_date": {
+          "min": "2016-01-01",
+          "max": "2024-12-31"
+        },
+        "default_date": {
+          "min": "2015-02-01",
+          "max": "2033-09-01"
+        }
+      },
+      "unique_values": {
+        "loan_id": 50000,
+        "sector": 10,
+        "loan_type": 5,
+        "collateral": 3,
+        "initial_rating": 7
+      }
+    },
+    "ratings": {
+      "rows": 17939,
+      "columns": 9,
+      "duplicate_rows": 0,
+      "missing_values": {},
+      "data_types": {
+        "issuer_id": "object",
+        "sector": "object",
+        "year": "int64",
+        "from_rating": "object",
+        "to_rating": "object",
+        "upgraded": "int64",
+        "downgraded": "int64",
+        "defaulted": "int64",
+        "notches_moved": "int64"
+      },
+      "numeric_ranges": {
+        "year": {
+          "min": 2015.0,
+          "max": 2024.0,
+          "mean": 2019.309047327053,
+          "median": 2019.0
+        },
+        "upgraded": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.06204359217347678,
+          "median": 0.0
+        },
+        "downgraded": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.06912313952840181,
+          "median": 0.0
+        },
+        "defaulted": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.02324544288979319,
+          "median": 0.0
+        },
+        "notches_moved": {
+          "min": -6.0,
+          "max": 7.0,
+          "mean": 0.057082334578293106,
+          "median": 0.0
+        }
+      },
+      "iqr_outlier_counts_descriptive_only": {
+        "year": 0,
+        "upgraded": 1113,
+        "downgraded": 1240,
+        "defaulted": 417,
+        "notches_moved": 2770
+      },
+      "date_ranges": {},
+      "unique_values": {
+        "issuer_id": 2000,
+        "sector": 10,
+        "from_rating": 7,
+        "to_rating": 8
+      }
+    },
+    "stress": {
+      "rows": 60,
+      "columns": 16,
+      "duplicate_rows": 0,
+      "missing_values": {},
+      "data_types": {
+        "scenario": "object",
+        "gdp_shock_pp": "float64",
+        "unemp_shock_pp": "float64",
+        "rate_shock_pp": "float64",
+        "credit_spread_bps": "int64",
+        "sector": "object",
+        "base_pd": "float64",
+        "stressed_pd": "float64",
+        "pd_uplift_pp": "float64",
+        "pd_multiplier": "float64",
+        "base_lgd": "float64",
+        "stressed_lgd": "float64",
+        "total_ead": "float64",
+        "expected_loss_base": "float64",
+        "expected_loss_stress": "float64",
+        "el_increase_pct": "float64"
+      },
+      "numeric_ranges": {
+        "gdp_shock_pp": {
+          "min": -8.0,
+          "max": 0.0,
+          "mean": -4.0,
+          "median": -4.25
+        },
+        "unemp_shock_pp": {
+          "min": 0.0,
+          "max": 8.0,
+          "mean": 3.8333333333333335,
+          "median": 4.0
+        },
+        "rate_shock_pp": {
+          "min": -2.0,
+          "max": 3.0,
+          "mean": 0.3333333333333333,
+          "median": 0.25
+        },
+        "credit_spread_bps": {
+          "min": 0.0,
+          "max": 400.0,
+          "mean": 183.33333333333334,
+          "median": 175.0
+        },
+        "base_pd": {
+          "min": 0.021524,
+          "max": 0.023575,
+          "mean": 0.022463500000000004,
+          "median": 0.022482000000000002
+        },
+        "stressed_pd": {
+          "min": 0.021524,
+          "max": 0.06373,
+          "mean": 0.03750335000000001,
+          "median": 0.036617
+        },
+        "pd_uplift_pp": {
+          "min": 0.0,
+          "max": 4.1063,
+          "mean": 1.503988333333333,
+          "median": 1.4308
+        },
+        "pd_multiplier": {
+          "min": 1.0,
+          "max": 2.812,
+          "mean": 1.6692833333333332,
+          "median": 1.629
+        },
+        "base_lgd": {
+          "min": 0.4,
+          "max": 0.6,
+          "mean": 0.49300000000000005,
+          "median": 0.49
+        },
+        "stressed_lgd": {
+          "min": 0.4,
+          "max": 0.6667,
+          "mean": 0.5263500000000001,
+          "median": 0.5167
+        },
+        "total_ead": {
+          "min": 3959380562.16,
+          "max": 30166694281.04,
+          "mean": 16493023373.219,
+          "median": 17311269392.635002
+        },
+        "expected_loss_base": {
+          "min": 59674821.98,
+          "max": 316107002.19,
+          "mean": 192378605.33699998,
+          "median": 209667239.38
+        },
+        "expected_loss_stress": {
+          "min": 52518256.14,
+          "max": 925010910.91,
+          "mean": 319125011.4685,
+          "median": 281420290.52
+        },
+        "el_increase_pct": {
+          "min": -15.6,
+          "max": 192.63,
+          "mean": 62.40599999999999,
+          "median": 58.46
+        }
+      },
+      "iqr_outlier_counts_descriptive_only": {
+        "gdp_shock_pp": 0,
+        "unemp_shock_pp": 0,
+        "rate_shock_pp": 0,
+        "credit_spread_bps": 0,
+        "base_pd": 0,
+        "stressed_pd": 0,
+        "pd_uplift_pp": 0,
+        "pd_multiplier": 0,
+        "base_lgd": 0,
+        "stressed_lgd": 0,
+        "total_ead": 0,
+        "expected_loss_base": 0,
+        "expected_loss_stress": 1,
+        "el_increase_pct": 0
+      },
+      "date_ranges": {},
+      "unique_values": {
+        "scenario": 6,
+        "sector": 10
+      }
+    },
+    "portfolio": {
+      "rows": 120,
+      "columns": 16,
+      "duplicate_rows": 0,
+      "missing_values": {},
+      "data_types": {
+        "date": "datetime64[ns]",
+        "n_active_loans": "int64",
+        "total_ead": "float64",
+        "total_el": "float64",
+        "total_rwa": "float64",
+        "el_rate": "float64",
+        "avg_pd": "float64",
+        "avg_lgd": "float64",
+        "var_99": "float64",
+        "cvar_995": "float64",
+        "sector_hhi": "float64",
+        "new_defaults": "int64",
+        "gdp_growth": "float64",
+        "unemployment": "float64",
+        "policy_rate": "float64",
+        "credit_spread_bps": "float64"
+      },
+      "numeric_ranges": {
+        "n_active_loans": {
+          "min": 482.0,
+          "max": 24933.0,
+          "mean": 18098.175,
+          "median": 21144.0
+        },
+        "total_ead": {
+          "min": 1697995933.82,
+          "max": 81501100348.81,
+          "mean": 59414158711.96334,
+          "median": 68907808902.145
+        },
+        "total_el": {
+          "min": 25747639.48,
+          "max": 996855886.09,
+          "mean": 699402254.1495,
+          "median": 776122754.6800001
+        },
+        "total_rwa": {
+          "min": 341156223.98,
+          "max": 13208340500.81,
+          "mean": 9267079874.7395,
+          "median": 10283626505.27
+        },
+        "el_rate": {
+          "min": 0.011027,
+          "max": 0.015164,
+          "mean": 0.011740541666666665,
+          "median": 0.011630999999999999
+        },
+        "avg_pd": {
+          "min": 0.021117,
+          "max": 0.023716,
+          "mean": 0.02233495,
+          "median": 0.022289
+        },
+        "avg_lgd": {
+          "min": 0.5378,
+          "max": 0.5473,
+          "mean": 0.5460524999999999,
+          "median": 0.5464
+        },
+        "var_99": {
+          "min": 59991999.99,
+          "max": 2322674214.59,
+          "mean": 1629607252.16825,
+          "median": 1808366018.405
+        },
+        "cvar_995": {
+          "min": 75440583.68,
+          "max": 2920787746.24,
+          "mean": 2049248604.6580837,
+          "median": 2274039671.21
+        },
+        "sector_hhi": {
+          "min": 0.1229,
+          "max": 0.1312,
+          "mean": 0.12452166666666668,
+          "median": 0.1244
+        },
+        "new_defaults": {
+          "min": 0.0,
+          "max": 1063.0,
+          "mean": 52.4,
+          "median": 30.0
+        },
+        "gdp_growth": {
+          "min": -4.257,
+          "max": 4.49,
+          "mean": 2.3233416666666664,
+          "median": 2.5885
+        },
+        "unemployment": {
+          "min": 4.168,
+          "max": 12.279,
+          "mean": 5.804291666666667,
+          "median": 5.349500000000001
+        },
+        "policy_rate": {
+          "min": 1.5,
+          "max": 5.0,
+          "mean": 3.0035833333333337,
+          "median": 3.0
+        },
+        "credit_spread_bps": {
+          "min": 100.4,
+          "max": 307.3,
+          "mean": 142.30499999999998,
+          "median": 135.10000000000002
+        }
+      },
+      "iqr_outlier_counts_descriptive_only": {
+        "n_active_loans": 0,
+        "total_ead": 0,
+        "total_el": 0,
+        "total_rwa": 0,
+        "el_rate": 1,
+        "avg_pd": 0,
+        "avg_lgd": 5,
+        "var_99": 0,
+        "cvar_995": 0,
+        "sector_hhi": 2,
+        "new_defaults": 3,
+        "gdp_growth": 17,
+        "unemployment": 10,
+        "policy_rate": 58,
+        "credit_spread_bps": 15
+      },
+      "date_ranges": {
+        "date": {
+          "min": "2015-01-01",
+          "max": "2024-12-01"
+        }
+      },
+      "unique_values": {}
+    },
+    "vintage": {
+      "rows": 2160,
+      "columns": 9,
+      "duplicate_rows": 0,
+      "missing_values": {},
+      "data_types": {
+        "vintage": "object",
+        "months_on_books": "int64",
+        "n_loans_originated": "int64",
+        "n_active": "int64",
+        "n_defaulted_cumulative": "int64",
+        "cumulative_default_rate": "float64",
+        "marginal_default_rate": "float64",
+        "avg_pd_at_origination": "float64",
+        "avg_credit_score": "float64"
+      },
+      "numeric_ranges": {
+        "months_on_books": {
+          "min": 1.0,
+          "max": 60.0,
+          "mean": 30.5,
+          "median": 30.5
+        },
+        "n_loans_originated": {
+          "min": 1262.0,
+          "max": 1445.0,
+          "mean": 1388.888888888889,
+          "median": 1397.0
+        },
+        "n_active": {
+          "min": 394.0,
+          "max": 1445.0,
+          "mean": 993.9481481481481,
+          "median": 1093.5
+        },
+        "n_defaulted_cumulative": {
+          "min": 0.0,
+          "max": 312.0,
+          "mean": 109.5199074074074,
+          "median": 81.0
+        },
+        "cumulative_default_rate": {
+          "min": 0.0,
+          "max": 0.22446,
+          "mean": 0.0790317074074074,
+          "median": 0.058192999999999995
+        },
+        "marginal_default_rate": {
+          "min": 0.0,
+          "max": 0.069094,
+          "mean": 0.0030397546296296297,
+          "median": 0.0015485
+        },
+        "avg_pd_at_origination": {
+          "min": 0.019088,
+          "max": 0.034092,
+          "mean": 0.022459555555555552,
+          "median": 0.021497000000000002
+        },
+        "avg_credit_score": {
+          "min": 713.0,
+          "max": 717.7,
+          "mean": 714.9888888888889,
+          "median": 714.9
+        }
+      },
+      "iqr_outlier_counts_descriptive_only": {
+        "months_on_books": 0,
+        "n_loans_originated": 120,
+        "n_active": 0,
+        "n_defaulted_cumulative": 0,
+        "cumulative_default_rate": 0,
+        "marginal_default_rate": 121,
+        "avg_pd_at_origination": 240,
+        "avg_credit_score": 0
+      },
+      "date_ranges": {},
+      "unique_values": {
+        "vintage": 36
+      }
+    }
+  },
+  "loan_validation": {
+    "duplicate_loan_ids": 0,
+    "invalid_target_values": 0,
+    "default_without_default_date": 0,
+    "nondefault_with_default_date": 0,
+    "default_before_origination": 0,
+    "survival_exceeds_contractual_maturity": 0,
+    "nondefault_not_observed_to_contractual_maturity": 0,
+    "credit_score_outside_300_850": 0,
+    "nonpositive_ead": 0,
+    "pd_outside_0_1": 0,
+    "lgd_outside_0_1": 0,
+    "defaults_after_reported_maturity_date": 662,
+    "defaults_after_2024_12_31": 662
+  },
+  "modeling_scope": {
+    "unit_of_analysis": "one originated loan",
+    "target": "defaulted during the simulated contractual term",
+    "positive_class": 1,
+    "application_time_features": [
+      "maturity_months",
+      "sector",
+      "loan_type",
+      "collateral",
+      "initial_rating",
+      "credit_score",
+      "ead",
+      "coupon_rate",
+      "leverage",
+      "interest_coverage",
+      "debt_to_equity",
+      "origination macroeconomic variables"
+    ],
+    "excluded_post_outcome_columns": [
+      "default_date",
+      "survival_months",
+      "recovery_rate",
+      "loss_given_default"
+    ],
+    "excluded_existing_risk_outputs": [
+      "pd_annual",
+      "lgd",
+      "el",
+      "unexpected_loss",
+      "rwa"
+    ],
+    "reported_maturity_date_warning": "maturity_date is capped at 2024-12-31 for many loans; use maturity_months for modeling."
+  },
+  "clean_loan_rows": 50000,
+  "unique_loans": 50000,
+  "sectors": 10,
+  "default_counts": {
+    "0": 43050,
+    "1": 6950
+  },
+  "default_rate": 0.139,
+  "class_imbalance": {
+    "positive_rate": 0.139,
+    "negative_to_positive_ratio": 6.194244604316546
+  },
+  "total_ead": 164930233732.19,
+  "total_existing_expected_loss": 1923786053.37,
+  "origination_date_min": "2015-01-01",
+  "origination_date_max": "2023-12-01",
+  "limitations": [
+    "The files appear simulation-oriented and are suitable for portfolio methodology demonstration, not direct production underwriting.",
+    "The label is eventual default during each simulated contractual term; it is not a fixed 12-month default label.",
+    "Reported maturity_date is capped at 2024-12-31 for many loans, so maturity_months is used instead.",
+    "Origination-year default rates shift materially; time-based validation is required.",
+    "No protected-class fields are supplied, so a complete fairness audit cannot be performed.",
+    "The analysis is descriptive and predictive; it does not establish causal effects."
+  ]
+}
