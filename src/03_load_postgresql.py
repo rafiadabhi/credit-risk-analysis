@@ -1,8 +1,12 @@
 import csv
-from io import StringIO
 import json
 
-from src.config import PROCESSED_FILES, SQL_DIR, psycopg2_params
+from src.config import (
+    PROCESSED_FILES,
+    SQL_DIR,
+    psycopg2_params,
+    validate_database_config,
+)
 
 
 TABLE_FILES = {
@@ -41,19 +45,12 @@ def main():
             + ", ".join(missing)
         )
 
+    validate_database_config()
     connection = psycopg2.connect(**psycopg2_params())
     try:
         with connection:
             with connection.cursor() as cursor:
                 cursor.execute((SQL_DIR / "01_schema.sql").read_text(encoding="utf-8"))
-                cursor.execute(
-                    "TRUNCATE TABLE "
-                    "credit_risk.loan_predictions, credit_risk.model_metrics, "
-                    "credit_risk.threshold_analysis, credit_risk.feature_importance, "
-                    "credit_risk.credit_ratings, credit_risk.portfolio_metrics, "
-                    "credit_risk.stress_scenarios, credit_risk.vintage_analysis, "
-                    "credit_risk.loans RESTART IDENTITY CASCADE"
-                )
                 for table_name, csv_path in TABLE_FILES.items():
                     print(f"Loading {csv_path.name} -> credit_risk.{table_name}")
                     copy_csv(cursor, table_name, csv_path)
@@ -71,4 +68,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

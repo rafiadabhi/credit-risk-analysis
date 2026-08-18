@@ -1,52 +1,56 @@
 # Validation Report
 
-## Final execution status
+## Build-environment validation
 
-The complete file-based path was rerun on the supplied dataset with:
+Completed checks:
+
+| Check | Result |
+|---|---|
+| Raw source audit | PASS |
+| Loan rows / unique IDs | 50,000 / 50,000 |
+| Defaults | 6,950 |
+| Python syntax | PASS |
+| Raw-to-processed cleaning | PASS |
+| Centralized workbook writer | PASS |
+| Workbook tables | 8 fact/analytical tables plus Manifest |
+| Test workbook loan rows | 50,000 |
+| Test workbook structure/opening | PASS |
+| Source-only package exclusions | PASS — no raw/processed CSV, workbook, model binary, `.env`, or virtual environment |
+
+The workbook writer was tested with validated existing table fixtures only to
+verify physical Excel structure, table names, sheet counts, and row counts. That
+temporary workbook is not a model-result deliverable and is not included in the
+ZIP.
+
+## Required Windows validation
+
+The official completion criterion is:
 
 ```powershell
-python run_pipeline.py --mode csv-only
+python run_pipeline.py
 ```
 
-Final status: **PASS**. End-to-end elapsed time in the validation environment was 25.7 seconds; the modeling stage reported 19.92 seconds. Runtime will vary by hardware and will increase when XGBoost is installed.
+followed by:
 
-## Verified outputs
+```json
+"status": "PASS"
+```
 
-| Check | Actual result | Status |
-|---|---:|---|
-| Clean loan rows | 50,000 | PASS |
-| Unique prediction IDs | 50,000 | PASS |
-| Power BI scored rows | 50,000 | PASS |
-| Credit-rating rows | 17,939 | PASS |
-| Stress rows | 60 | PASS |
-| Portfolio-month rows | 120 | PASS |
-| Vintage rows | 2,160 | PASS |
-| Missing required prediction fields | 0 | PASS |
-| Score range | 0.069799–0.488878 | PASS |
-| Manual-review queue actions | 500/500 Manual Review | PASS |
-| Python compilation | `run_pipeline.py` and all `src` modules | PASS |
-| JSON parsing | Audit, metadata, notebook, and Power BI theme | PASS |
-| Dashboard mockup dimensions | Four PNG files, each 1440×900 | PASS |
-| Excel ZIP structure | No compressed-file errors | PASS |
-| Excel formula/error scan | No matched Excel error values | PASS |
+This must validate:
 
-## Reconciled model result
-
-The locally selected model is **Calibrated Random Forest**. On the untouched 2022–2023 test period at the validation-selected threshold of 0.17:
-
-| Metric | Actual value |
-|---|---:|
-| ROC-AUC | 0.867541 |
-| PR-AUC | 0.424745 |
-| Brier score | 0.066879 |
-| Precision | 0.198219 |
-| Recall | 0.875145 |
-| F1 | 0.323228 |
-| Specificity | 0.700157 |
-| TN / FP / FN / TP | 7,150 / 3,062 / 108 / 757 |
+- PostgreSQL schema rebuild and five-table load;
+- Logistic Regression, Calibrated Random Forest, and XGBoost execution;
+- selected-model predictions for all 50,000 loans;
+- probabilities within `[0,1]`;
+- no missing risk bands/actions/loss proxies;
+- SQL reporting views;
+- eight Power BI tables in the final workbook;
+- workbook row counts matching PostgreSQL.
 
 ## Validation boundaries
 
-- PostgreSQL/pgAdmin was not installed in the execution environment. DDL, loading code, table/CSV column alignment, rerunnable view ordering, and SQL syntax were checked statically, but a live PostgreSQL run must be completed on Windows.
-- Power BI Desktop was not available. All source tables, DAX, theme, layout blueprint, mockups, and reconciliation values were prepared; the PBIX must be assembled and published manually.
-- XGBoost code is included, but the package was unavailable in this environment. No XGBoost metric is reported. Installing `requirements.txt` on Windows enables the candidate and may change the selected model.
+- The build environment did not provide a live PostgreSQL server.
+- XGBoost installation was unavailable in the build environment.
+- Power BI Desktop and PBIX construction remain manual Windows steps.
+- No final selected model or metric is claimed until the user's complete run
+  passes.

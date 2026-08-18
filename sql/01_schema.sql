@@ -1,4 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS credit_risk;
+DROP SCHEMA IF EXISTS credit_risk CASCADE;
+CREATE SCHEMA credit_risk;
 
 CREATE TABLE IF NOT EXISTS credit_risk.loans (
     loan_id VARCHAR(20) PRIMARY KEY,

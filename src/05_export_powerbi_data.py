@@ -1,260 +1,265 @@
 import argparse
-import json
-import shutil
+from pathlib import Path
 
-import numpy as np
 import pandas as pd
+from openpyxl import load_workbook
+from openpyxl.styles import Font, PatternFill
+from openpyxl.worksheet.table import Table, TableStyleInfo
 
-from src.config import (
-    DASHBOARD_DATA_DIR,
-    OUTPUT_DIR,
-    PROCESSED_FILES,
-    ensure_directories,
-)
+from src.config import OUTPUT_DIR, POWERBI_WORKBOOK, ensure_directories
 from src.db import get_engine
 
 
-PREDICTION_ONLY_COLUMNS = [
-    "loan_id",
-    "data_split",
-    "model_name",
-    "default_probability",
-    "operating_threshold",
-    "predicted_default",
-    "risk_band",
-    "risk_decile",
-    "underwriting_action",
-    "term_risk_loss_proxy",
-]
+POWERBI_QUERIES = {
+    "Fact_Loans": {
+        "object": "credit_risk.mv_powerbi_loans",
+        "grain": "One originated loan",
+        "query": "SELECT * FROM credit_risk.mv_powerbi_loans ORDER BY loan_id",
+    },
+    "Fact_Thresholds": {
+        "object": "credit_risk.vw_threshold_simulator",
+        "grain": "One selected-model test threshold",
+        "query": (
+            "SELECT * FROM credit_risk.vw_threshold_simulator "
+            "WHERE model_name = ("
+            "SELECT model_name FROM credit_risk.loan_predictions LIMIT 1"
+            ") ORDER BY threshold"
+        ),
+    },
+    "Fact_ModelMetrics": {
+        "object": "credit_risk.model_metrics",
+        "grain": "One model, split, and threshold type",
+        "query": (
+            "SELECT * FROM credit_risk.model_metrics "
+            "ORDER BY model_name, split, threshold_type"
+        ),
+    },
+    "Fact_Portfolio": {
+        "object": "credit_risk.portfolio_metrics",
+        "grain": "One portfolio month",
+        "query": "SELECT * FROM credit_risk.portfolio_metrics ORDER BY date",
+    },
+    "Fact_Stress": {
+        "object": "credit_risk.vw_stress_scenarios",
+        "grain": "One scenario and sector",
+        "query": (
+            "SELECT * FROM credit_risk.vw_stress_scenarios "
+            "ORDER BY scenario, sector"
+        ),
+    },
+    "Fact_Vintage": {
+        "object": "credit_risk.vintage_analysis",
+        "grain": "One vintage and month on books",
+        "query": (
+            "SELECT * FROM credit_risk.vintage_analysis "
+            "ORDER BY vintage, months_on_books"
+        ),
+    },
+    "Fact_Migration": {
+        "object": "credit_risk.vw_rating_migration",
+        "grain": "One year and sector",
+        "query": (
+            "SELECT * FROM credit_risk.vw_rating_migration "
+            "ORDER BY year, sector"
+        ),
+    },
+    "Feature_Importance": {
+        "object": "credit_risk.feature_importance",
+        "grain": "One selected-model feature",
+        "query": (
+            "SELECT * FROM credit_risk.feature_importance "
+            "ORDER BY importance_mean DESC"
+        ),
+    },
+}
 
 
-def export_csv_mode() -> dict[str, int]:
-    loans = pd.read_csv(PROCESSED_FILES["loans"], dtype={"loan_id": "string"})
-    predictions = pd.read_csv(
-        OUTPUT_DIR / "loan_predictions.csv", dtype={"loan_id": "string"}
-    )
-    scored = loans.merge(
-        predictions[PREDICTION_ONLY_COLUMNS], on="loan_id", how="inner", validate="one_to_one"
-    )
-    if len(scored) != len(loans):
-        raise ValueError("Not every cleaned loan has exactly one prediction.")
-
-    tables = {
-        "loans_scored.csv": scored,
-        "model_metrics.csv": pd.read_csv(OUTPUT_DIR / "model_metrics.csv"),
-        "threshold_analysis.csv": pd.read_csv(OUTPUT_DIR / "threshold_analysis.csv"),
-        "feature_importance.csv": pd.read_csv(OUTPUT_DIR / "feature_importance.csv"),
-        "portfolio_metrics.csv": pd.read_csv(PROCESSED_FILES["portfolio"]),
-        "stress_scenarios.csv": pd.read_csv(PROCESSED_FILES["stress"]),
-        "vintage_analysis.csv": pd.read_csv(PROCESSED_FILES["vintage"]),
-        "credit_ratings.csv": pd.read_csv(PROCESSED_FILES["ratings"]),
+def load_postgres_tables() -> dict[str, pd.DataFrame]:
+    engine = get_engine()
+    return {
+        sheet_name: pd.read_sql(details["query"], engine)
+        for sheet_name, details in POWERBI_QUERIES.items()
     }
-    selected_model_name = predictions["model_name"].iloc[0]
-    tables["selected_model_test_thresholds.csv"] = tables[
-        "threshold_analysis.csv"
-    ].loc[
-        (tables["threshold_analysis.csv"]["model_name"] == selected_model_name)
-        & (tables["threshold_analysis.csv"]["split"] == "test")
-    ].sort_values("threshold")
 
-    executive = pd.DataFrame(
-        [
-            {
-                "loans": scored["loan_id"].nunique(),
-                "total_ead": scored["ead"].sum(),
-                "defaults": scored["defaulted"].sum(),
-                "observed_default_rate": scored["defaulted"].mean(),
-                "existing_expected_loss": scored["el"].sum(),
-                "term_risk_loss_proxy": scored["term_risk_loss_proxy"].sum(),
-                "avg_credit_score": scored["credit_score"].mean(),
-                "avg_model_probability": scored["default_probability"].mean(),
-                "avg_existing_pd": scored["pd_annual"].mean(),
-            }
-        ]
-    )
-    tables["executive_kpis.csv"] = executive
-    tables["validation_summary.csv"] = pd.DataFrame(
-        [
-            {
-                "clean_loan_rows": len(loans),
-                "prediction_rows": len(predictions),
-                "test_rows": int((predictions["data_split"] == "test").sum()),
-                "missing_probabilities": int(predictions["default_probability"].isna().sum()),
-                "invalid_probabilities": int((~predictions["default_probability"].between(0, 1)).sum()),
-                "invalid_target_values": int((~predictions["defaulted"].isin([0, 1])).sum()),
-                "probability_min": predictions["default_probability"].min(),
-                "probability_max": predictions["default_probability"].max(),
-            }
-        ]
-    )
 
-    sector = (
-        scored.groupby("sector", as_index=False)
-        .agg(
-            loan_count=("loan_id", "nunique"),
-            total_ead=("ead", "sum"),
-            defaults=("defaulted", "sum"),
-            observed_default_rate=("defaulted", "mean"),
-            avg_model_probability=("default_probability", "mean"),
-            term_risk_loss_proxy=("term_risk_loss_proxy", "sum"),
-            existing_expected_loss=("el", "sum"),
-            avg_credit_score=("credit_score", "mean"),
-        )
-        .sort_values("observed_default_rate", ascending=False)
-    )
-    sector["default_rate_rank"] = sector["observed_default_rate"].rank(
-        method="min", ascending=False
-    )
-    sector["exposure_rank"] = sector["total_ead"].rank(method="min", ascending=False)
-    sector["exposure_share"] = sector["total_ead"] / sector["total_ead"].sum()
-    tables["sector_risk.csv"] = sector
+def validate_tables(tables: dict[str, pd.DataFrame]) -> dict[str, int]:
+    if set(tables) != set(POWERBI_QUERIES):
+        raise ValueError(f"Unexpected Power BI tables: {sorted(tables)}")
 
-    rating_sort = {"AAA": 1, "AA": 2, "A": 3, "BBB": 4, "BB": 5, "B": 6, "CCC": 7}
-    rating = (
-        scored.groupby("initial_rating", as_index=False)
-        .agg(
-            loan_count=("loan_id", "nunique"),
-            total_ead=("ead", "sum"),
-            defaults=("defaulted", "sum"),
-            observed_default_rate=("defaulted", "mean"),
-            avg_model_probability=("default_probability", "mean"),
-            avg_existing_pd=("pd_annual", "mean"),
-            avg_credit_score=("credit_score", "mean"),
-        )
-    )
-    rating["rating_sort"] = rating["initial_rating"].map(rating_sort)
-    tables["rating_risk.csv"] = rating.sort_values("rating_sort")
+    expected_exact = {
+        "Fact_Loans": 50_000,
+        "Fact_Portfolio": 120,
+        "Fact_Stress": 60,
+        "Fact_Vintage": 2_160,
+    }
+    counts = {name: len(frame) for name, frame in tables.items()}
+    for name, expected in expected_exact.items():
+        if counts[name] != expected:
+            raise ValueError(f"{name}: expected {expected:,} rows, found {counts[name]:,}")
+    if any(count <= 0 for count in counts.values()):
+        raise ValueError(f"One or more Power BI tables are empty: {counts}")
 
-    monthly = (
-        scored.assign(origination_month=pd.to_datetime(scored["origination_date"]).dt.to_period("M").astype(str))
-        .groupby("origination_month", as_index=False)
-        .agg(
-            originated_loans=("loan_id", "nunique"),
-            originated_ead=("ead", "sum"),
-            eventual_defaults=("defaulted", "sum"),
-            eventual_default_rate=("defaulted", "mean"),
-            avg_model_probability=("default_probability", "mean"),
-            avg_existing_pd=("pd_annual", "mean"),
-            avg_credit_score=("credit_score", "mean"),
-        )
-    )
-    tables["monthly_risk_trend.csv"] = monthly
-
-    test = scored[scored["data_split"] == "test"]
-    decile = (
-        test.groupby("risk_decile", as_index=False)
-        .agg(
-            loan_count=("loan_id", "nunique"),
-            defaults=("defaulted", "sum"),
-            default_rate=("defaulted", "mean"),
-            avg_probability=("default_probability", "mean"),
-            total_ead=("ead", "sum"),
-        )
-        .sort_values("risk_decile")
-    )
-    decile["portfolio_default_rate"] = test["defaulted"].mean()
-    decile["lift_vs_test_average"] = (
-        decile["default_rate"] / decile["portfolio_default_rate"]
-    )
-    tables["risk_decile_lift.csv"] = decile
-
-    high_risk_columns = [
+    loans = tables["Fact_Loans"]
+    required_loan_columns = {
         "loan_id",
-        "origination_date",
-        "sector",
-        "loan_type",
-        "collateral",
-        "initial_rating",
-        "credit_score",
-        "ead",
-        "lgd",
-        "default_probability",
-        "risk_band",
-        "risk_decile",
-        "underwriting_action",
-        "term_risk_loss_proxy",
         "defaulted",
         "data_split",
-    ]
-    tables["high_risk_test_loans.csv"] = (
-        test[test["underwriting_action"] == "Manual Review"].sort_values(
-            ["term_risk_loss_proxy", "default_probability"], ascending=False
-        )[high_risk_columns]
-        .head(500)
-    )
-
-    stress = tables["stress_scenarios.csv"].copy()
-    stress["incremental_expected_loss"] = (
-        stress["expected_loss_stress"] - stress["expected_loss_base"]
-    )
-    stress["sector_impact_rank"] = stress.groupby("scenario")[
-        "incremental_expected_loss"
-    ].rank(method="min", ascending=False)
-    tables["stress_scenarios.csv"] = stress
-
-    counts = {}
-    for filename, frame in tables.items():
-        path = DASHBOARD_DATA_DIR / filename
-        frame.to_csv(path, index=False)
-        counts[filename] = len(frame)
-    return counts
-
-
-def export_postgres_mode() -> dict[str, int]:
-    engine = get_engine()
-    query_map = {
-        "loans_scored.csv": "SELECT * FROM credit_risk.mv_powerbi_loans",
-        "executive_kpis.csv": "SELECT * FROM credit_risk.vw_executive_kpis",
-        "validation_summary.csv": (
-            "SELECT COUNT(*) AS clean_loan_rows, COUNT(*) AS prediction_rows, "
-            "COUNT(*) FILTER (WHERE data_split = 'test') AS test_rows, "
-            "COUNT(*) FILTER (WHERE default_probability IS NULL) AS missing_probabilities, "
-            "COUNT(*) FILTER (WHERE default_probability NOT BETWEEN 0 AND 1) AS invalid_probabilities, "
-            "COUNT(*) FILTER (WHERE defaulted NOT IN (0,1)) AS invalid_target_values, "
-            "MIN(default_probability) AS probability_min, MAX(default_probability) AS probability_max "
-            "FROM credit_risk.mv_powerbi_loans"
-        ),
-        "sector_risk.csv": "SELECT * FROM credit_risk.mv_sector_risk",
-        "rating_risk.csv": "SELECT * FROM credit_risk.mv_rating_risk",
-        "monthly_risk_trend.csv": "SELECT * FROM credit_risk.mv_monthly_risk_trend",
-        "risk_decile_lift.csv": "SELECT * FROM credit_risk.mv_risk_decile_lift",
-        "model_metrics.csv": "SELECT * FROM credit_risk.model_metrics",
-        "threshold_analysis.csv": "SELECT * FROM credit_risk.threshold_analysis",
-        "selected_model_test_thresholds.csv": (
-            "SELECT * FROM credit_risk.vw_threshold_simulator "
-            "WHERE model_name = (SELECT model_name FROM credit_risk.loan_predictions LIMIT 1) "
-            "ORDER BY threshold"
-        ),
-        "feature_importance.csv": "SELECT * FROM credit_risk.feature_importance",
-        "portfolio_metrics.csv": "SELECT * FROM credit_risk.portfolio_metrics",
-        "stress_scenarios.csv": "SELECT * FROM credit_risk.vw_stress_scenarios",
-        "vintage_analysis.csv": "SELECT * FROM credit_risk.vintage_analysis",
-        "credit_ratings.csv": "SELECT * FROM credit_risk.credit_ratings",
-        "high_risk_test_loans.csv": (
-            "SELECT loan_id, origination_date, sector, loan_type, collateral, "
-            "initial_rating, credit_score, ead, lgd, default_probability, risk_band, "
-            "risk_decile, underwriting_action, term_risk_loss_proxy, defaulted, data_split "
-            "FROM credit_risk.mv_powerbi_loans WHERE data_split = 'test' "
-            "AND underwriting_action = 'Manual Review' "
-            "ORDER BY term_risk_loss_proxy DESC, default_probability DESC LIMIT 500"
-        ),
+        "model_name",
+        "default_probability",
+        "operating_threshold",
+        "risk_band",
+        "underwriting_action",
+        "term_risk_loss_proxy",
     }
-    counts = {}
-    for filename, query in query_map.items():
-        frame = pd.read_sql(query, engine)
-        frame.to_csv(DASHBOARD_DATA_DIR / filename, index=False)
-        counts[filename] = len(frame)
+    missing = required_loan_columns - set(loans.columns)
+    if missing:
+        raise ValueError(f"Fact_Loans is missing columns: {sorted(missing)}")
+    if loans["loan_id"].duplicated().any():
+        raise ValueError("Fact_Loans contains duplicate loan_id values.")
+    if not loans["default_probability"].between(0, 1).all():
+        raise ValueError("Fact_Loans contains probabilities outside [0, 1].")
+    if loans[list(required_loan_columns)].isna().any().any():
+        raise ValueError("Fact_Loans contains missing required analytical fields.")
+    if set(loans["data_split"]) != {"train", "validation", "test"}:
+        raise ValueError("Fact_Loans does not contain all temporal data splits.")
+
+    thresholds = tables["Fact_Thresholds"]
+    if set(thresholds["split"]) != {"test"}:
+        raise ValueError("Fact_Thresholds must contain only the test split.")
+    if thresholds["model_name"].nunique() != 1:
+        raise ValueError("Fact_Thresholds must contain only the selected model.")
+    if not thresholds["threshold"].between(0, 1).all():
+        raise ValueError("Fact_Thresholds contains values outside [0, 1].")
+
+    metrics = tables["Fact_ModelMetrics"]
+    if not {"validation", "test"}.issubset(set(metrics["split"])):
+        raise ValueError("Fact_ModelMetrics is missing validation or test metrics.")
+    required_models = {"Logistic Regression", "Calibrated Random Forest", "XGBoost"}
+    if not required_models.issubset(set(metrics["model_name"])):
+        raise ValueError("Fact_ModelMetrics does not contain all three required models.")
     return counts
 
 
-def main():
-    parser = argparse.ArgumentParser(description="Export Power BI-ready flat files.")
-    parser.add_argument("--source", choices=["csv", "postgres"], default="postgres")
-    args = parser.parse_args()
+def build_manifest(counts: dict[str, int]) -> pd.DataFrame:
+    rows = []
+    for sheet_name, details in POWERBI_QUERIES.items():
+        rows.append(
+            {
+                "sheet_name": sheet_name,
+                "excel_table": f"tbl{sheet_name}",
+                "postgresql_object": details["object"],
+                "grain": details["grain"],
+                "row_count": counts[sheet_name],
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def format_workbook(path: Path) -> None:
+    workbook = load_workbook(path)
+    header_fill = PatternFill("solid", fgColor="17365D")
+    header_font = Font(color="FFFFFF", bold=True)
+
+    for worksheet in workbook.worksheets:
+        worksheet.freeze_panes = "A2"
+        worksheet.sheet_view.showGridLines = False
+        for cell in worksheet[1]:
+            cell.fill = header_fill
+            cell.font = header_font
+
+        max_row = worksheet.max_row
+        max_column = worksheet.max_column
+        if max_row >= 2 and max_column >= 1:
+            table_name = f"tbl{worksheet.title}"
+            table = Table(
+                displayName=table_name,
+                ref=f"A1:{worksheet.cell(max_row, max_column).coordinate}",
+            )
+            table.tableStyleInfo = TableStyleInfo(
+                name="TableStyleMedium2",
+                showFirstColumn=False,
+                showLastColumn=False,
+                showRowStripes=True,
+                showColumnStripes=False,
+            )
+            worksheet.add_table(table)
+
+        sample_end = min(max_row, 250)
+        for column_cells in worksheet.iter_cols(
+            min_row=1,
+            max_row=sample_end,
+            min_col=1,
+            max_col=max_column,
+        ):
+            width = max(
+                len(str(cell.value)) if cell.value is not None else 0
+                for cell in column_cells
+            )
+            worksheet.column_dimensions[column_cells[0].column_letter].width = min(
+                max(width + 2, 11), 36
+            )
+
+    workbook.save(path)
+
+
+def write_workbook(tables: dict[str, pd.DataFrame], path: Path) -> dict[str, int]:
+    counts = validate_tables(tables)
+    manifest = build_manifest(counts)
+    with pd.ExcelWriter(path, engine="openpyxl") as writer:
+        manifest.to_excel(writer, sheet_name="Manifest", index=False)
+        for sheet_name, frame in tables.items():
+            frame.to_excel(writer, sheet_name=sheet_name, index=False)
+    format_workbook(path)
+    return counts
+
+
+def validate_workbook(path: Path, expected_counts: dict[str, int]) -> None:
+    workbook = load_workbook(path, read_only=True, data_only=True)
+    expected_sheets = ["Manifest", *POWERBI_QUERIES]
+    if workbook.sheetnames != expected_sheets:
+        raise ValueError(
+            f"Workbook sheets do not match contract: {workbook.sheetnames}"
+        )
+    for sheet_name, expected_rows in expected_counts.items():
+        observed_rows = workbook[sheet_name].max_row - 1
+        if observed_rows != expected_rows:
+            raise ValueError(
+                f"{sheet_name}: workbook has {observed_rows:,} rows; "
+                f"expected {expected_rows:,}."
+            )
+    workbook.close()
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Export PostgreSQL reporting objects into one centralized Excel "
+            "workbook for Power BI."
+        )
+    )
+    parser.parse_args()
     ensure_directories()
-    counts = export_csv_mode() if args.source == "csv" else export_postgres_mode()
-    print(json.dumps(counts, indent=2))
-    print(f"Power BI-ready data saved to: {DASHBOARD_DATA_DIR}")
+
+    # data/outputs is reserved for this one final Power BI source file.
+    for generated_file in OUTPUT_DIR.iterdir():
+        if generated_file.is_file() and generated_file.name != ".gitkeep":
+            generated_file.unlink()
+
+    temporary_path = POWERBI_WORKBOOK.with_name(
+        f"{POWERBI_WORKBOOK.stem}.tmp{POWERBI_WORKBOOK.suffix}"
+    )
+    try:
+        tables = load_postgres_tables()
+        counts = write_workbook(tables, temporary_path)
+        validate_workbook(temporary_path, counts)
+        temporary_path.replace(POWERBI_WORKBOOK)
+    except Exception:
+        temporary_path.unlink(missing_ok=True)
+        raise
+
+    print(f"Power BI workbook saved to: {POWERBI_WORKBOOK}")
+    print(f"Sheet row counts: {counts}")
+    print("Use this one workbook as the only data source in Power BI Desktop.")
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 
 from src.config import (
-    OUTPUT_DIR,
+    AUDIT_REPORT,
     PROCESSED_FILES,
     RAW_FILES,
     ensure_directories,
@@ -268,7 +268,7 @@ def main() -> None:
         path = PROCESSED_FILES[name]
         frame.to_csv(path, index=False, date_format="%Y-%m-%d")
 
-    report_path = OUTPUT_DIR / "data_audit_report.json"
+    report_path = AUDIT_REPORT
     report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(json.dumps(report, indent=2))
     print(f"Saved audit report: {report_path}")

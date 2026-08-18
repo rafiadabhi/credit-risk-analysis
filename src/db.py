@@ -1,11 +1,12 @@
 from pathlib import Path
 
-from src.config import database_url
+from src.config import database_url, validate_database_config
 
 
 def get_engine():
     from sqlalchemy import create_engine
 
+    validate_database_config()
     return create_engine(database_url(), pool_pre_ping=True)
 
 

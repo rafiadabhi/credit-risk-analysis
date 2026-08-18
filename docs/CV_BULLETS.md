@@ -1,29 +1,31 @@
 # CV Output
 
-Use this version now; it does not claim that the local PostgreSQL load or PBIX build has already been completed:
+Do not publish model metrics until `python run_pipeline.py` finishes with
+`status: PASS`. Read the selected model and test metrics from
+`tblFact_ModelMetrics` in `data/outputs/credit_risk_powerbi_dataset.xlsx`.
+
+Use this template after the run:
 
 ```text
-Credit Risk Portfolio Analytics & Contractual-Term Default Scoring [GitHub Link] | August 2026
+Credit Risk Portfolio & Contractual-Term Default Scoring [GitHub Link] | [Month Year]
 
-• Cleaned and validated 50,000 multi-sector loans using Python, engineered leakage-safe application features, and designed a PostgreSQL schema with SQL-based sector, vintage, migration, and stress analyses.
+• Cleaned and validated 50,000 loans across 10 sectors using Python, engineered leakage-safe application features, and loaded five analytical tables into PostgreSQL for SQL-based stress, vintage, migration, and portfolio analysis.
 
-• Benchmarked Logistic Regression and a calibrated Random Forest with time-based validation, achieving 0.868 ROC-AUC and 0.425 PR-AUC on 11,077 holdout loans; produced an Excel simulator and Power BI-ready dashboard package.
+• Benchmarked Logistic Regression, Calibrated Random Forest, and XGBoost using a temporal holdout; selected [MODEL] with [TEST PR-AUC] PR-AUC and [TEST ROC-AUC] ROC-AUC, then built a centralized Excel-to-Power BI underwriting dashboard.
 ```
 
-After the full PostgreSQL pipeline passes locally and the PBIX is built and reconciled, you may use this stronger final wording:
+Optional operating-decision version for the second bullet:
 
 ```text
-Credit Risk Portfolio Analytics & Contractual-Term Default Scoring [GitHub Link] | August 2026
-
-• Cleaned and validated 50,000 multi-sector loans using Python, engineered leakage-safe application features, and loaded five tables into PostgreSQL for SQL-based sector, vintage, migration, and stress analysis.
-
-• Benchmarked Logistic Regression and a calibrated Random Forest with time-based validation, achieving 0.868 ROC-AUC and 0.425 PR-AUC on 11,077 holdout loans; built Excel and Power BI underwriting dashboards.
+• Selected [MODEL] using validation PR-AUC and a recall-constrained threshold, capturing [TEST RECALL]% of holdout defaults while routing [MANUAL REVIEW RATE]% of applications to manual review in Power BI.
 ```
 
-Alternative second bullet emphasizing the operating decision:
+Do not claim:
 
-```text
-• Selected a calibrated Random Forest using time-based validation, capturing 87.5% of holdout defaults at a 34.5% manual-review rate, and visualized threshold trade-offs in Excel and Power BI.
-```
+- automatic rejection;
+- 12-month PD;
+- production deployment;
+- live scoring;
+- reduced NPL;
+- XGBoost performance copied from another run.
 
-Do not add XGBoost performance until it has run locally. If XGBoost becomes the selected model, regenerate metrics and update the model name and numbers from `data/outputs/model_metrics.csv`.

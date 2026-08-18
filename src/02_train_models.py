@@ -1,6 +1,5 @@
 import argparse
 import json
-from pathlib import Path
 import time
 import warnings
 
@@ -25,7 +24,7 @@ from sklearn.metrics import (
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-from src.config import MODEL_DIR, OUTPUT_DIR, PROCESSED_FILES, ensure_directories
+from src.config import MODEL_DIR, ensure_directories
 from src.db import get_engine
 
 
@@ -59,15 +58,8 @@ MINIMUM_VALIDATION_RECALL = 0.70
 FALSE_POSITIVE_OPPORTUNITY_RATE = 0.02
 
 
-def load_loans(source: str) -> pd.DataFrame:
-    if source == "postgres":
-        loans = pd.read_sql("SELECT * FROM credit_risk.loans", get_engine())
-    else:
-        loans = pd.read_csv(
-            PROCESSED_FILES["loans"],
-            parse_dates=["origination_date", "maturity_date", "default_date"],
-            dtype={"loan_id": "string"},
-        )
+def load_loans() -> pd.DataFrame:
+    loans = pd.read_sql("SELECT * FROM credit_risk.loans", get_engine())
 
     loans["origination_date"] = pd.to_datetime(loans["origination_date"])
     loans["origination_month"] = loans["origination_month"].astype("string")
@@ -115,7 +107,7 @@ def build_preprocessor() -> ColumnTransformer:
     )
 
 
-def build_models(y_train: pd.Series) -> tuple[dict[str, Pipeline], list[str]]:
+def build_models(y_train: pd.Series) -> dict[str, Pipeline]:
     models = {
         "Logistic Regression": Pipeline(
             [
@@ -154,35 +146,36 @@ def build_models(y_train: pd.Series) -> tuple[dict[str, Pipeline], list[str]]:
             ]
         ),
     }
-    unavailable = []
     try:
         from xgboost import XGBClassifier
+    except ImportError as exc:
+        raise RuntimeError(
+            "XGBoost is required. Run: pip install -r requirements.txt"
+        ) from exc
 
-        negative, positive = np.bincount(y_train.astype(int))
-        models["XGBoost"] = Pipeline(
-            [
-                ("preprocessor", build_preprocessor()),
-                (
-                    "model",
-                    XGBClassifier(
-                        n_estimators=350,
-                        max_depth=4,
-                        learning_rate=0.05,
-                        subsample=0.85,
-                        colsample_bytree=0.85,
-                        min_child_weight=5,
-                        reg_lambda=2.0,
-                        scale_pos_weight=negative / positive,
-                        eval_metric="logloss",
-                        n_jobs=-1,
-                        random_state=42,
-                    ),
+    negative, positive = np.bincount(y_train.astype(int))
+    models["XGBoost"] = Pipeline(
+        [
+            ("preprocessor", build_preprocessor()),
+            (
+                "model",
+                XGBClassifier(
+                    n_estimators=350,
+                    max_depth=4,
+                    learning_rate=0.05,
+                    subsample=0.85,
+                    colsample_bytree=0.85,
+                    min_child_weight=5,
+                    reg_lambda=2.0,
+                    scale_pos_weight=negative / positive,
+                    eval_metric="logloss",
+                    n_jobs=-1,
+                    random_state=42,
                 ),
-            ]
-        )
-    except ImportError:
-        unavailable.append("XGBoost (install the xgboost package to run it)")
-    return models, unavailable
+            ),
+        ]
+    )
+    return models
 
 
 def safe_specificity(target: np.ndarray, prediction: np.ndarray) -> float:
@@ -284,13 +277,17 @@ def risk_band(probability: pd.Series, operating_threshold: float) -> pd.Series:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Train and evaluate credit default models.")
-    parser.add_argument("--source", choices=["postgres", "csv"], default="postgres")
-    args = parser.parse_args()
+    parser = argparse.ArgumentParser(
+        description=(
+            "Train Logistic Regression, Calibrated Random Forest, and XGBoost "
+            "from PostgreSQL and write model outputs back to PostgreSQL."
+        )
+    )
+    parser.parse_args()
 
     ensure_directories()
     started = time.time()
-    loans = load_loans(args.source)
+    loans = load_loans()
     masks = split_masks(loans)
     split_summary = {
         name: {
@@ -304,7 +301,7 @@ def main() -> None:
 
     x = loans[MODEL_FEATURES]
     y = loans[TARGET].astype(int)
-    models, unavailable_models = build_models(y[masks["train"]])
+    models = build_models(y[masks["train"]])
     fitted_models = {}
     probability_by_model = {}
     metrics = []
@@ -430,22 +427,6 @@ def main() -> None:
     ).sort_values("importance_mean", ascending=False)
     feature_importance.insert(0, "model_name", selected_model_name)
 
-    segment_summary = (
-        loans.assign(default_probability=all_probability)
-        .groupby("sector", as_index=False)
-        .agg(
-            loans=("loan_id", "nunique"),
-            total_ead=("ead", "sum"),
-            defaults=("defaulted", "sum"),
-            default_rate=("defaulted", "mean"),
-            average_credit_score=("credit_score", "mean"),
-            average_existing_pd=("pd_annual", "mean"),
-            average_model_probability=("default_probability", "mean"),
-            existing_expected_loss=("el", "sum"),
-        )
-        .sort_values("default_rate", ascending=False)
-    )
-
     metadata = {
         "target_definition": "default during the simulated contractual term",
         "selected_model": selected_model_name,
@@ -471,7 +452,6 @@ def main() -> None:
             "recovery_rate",
             "loss_given_default",
         ],
-        "unavailable_models_in_validation_environment": unavailable_models,
         "probability_horizon_note": (
             "The model score estimates default during the simulated contractual term; "
             "pd_annual is retained as a separate dataset benchmark and is not directly comparable."
@@ -483,66 +463,61 @@ def main() -> None:
         "elapsed_seconds": round(time.time() - started, 2),
     }
 
-    predictions.to_csv(OUTPUT_DIR / "loan_predictions.csv", index=False)
-    metrics_df.to_csv(OUTPUT_DIR / "model_metrics.csv", index=False)
-    thresholds.to_csv(OUTPUT_DIR / "threshold_analysis.csv", index=False)
-    feature_importance.to_csv(OUTPUT_DIR / "feature_importance.csv", index=False)
-    segment_summary.to_csv(OUTPUT_DIR / "sector_risk_summary.csv", index=False)
-    (OUTPUT_DIR / "model_metadata.json").write_text(
+    (MODEL_DIR / "model_metadata.json").write_text(
         json.dumps(metadata, indent=2), encoding="utf-8"
     )
     joblib.dump(selected_model, MODEL_DIR / "selected_default_model.joblib")
 
-    if args.source == "postgres":
-        engine = get_engine()
-        from sqlalchemy import text
+    engine = get_engine()
+    from sqlalchemy import text
 
-        with engine.begin() as connection:
-            connection.execute(
-                text(
-                    "TRUNCATE TABLE "
-                    "credit_risk.loan_predictions, "
-                    "credit_risk.model_metrics, "
-                    "credit_risk.threshold_analysis, "
-                    "credit_risk.feature_importance"
-                )
+    with engine.begin() as connection:
+        connection.execute(
+            text(
+                "TRUNCATE TABLE "
+                "credit_risk.loan_predictions, "
+                "credit_risk.model_metrics, "
+                "credit_risk.threshold_analysis, "
+                "credit_risk.feature_importance"
             )
-        predictions.to_sql(
-            "loan_predictions",
-            engine,
-            schema="credit_risk",
-            if_exists="append",
-            index=False,
-            chunksize=3000,
-            method="multi",
         )
-        metrics_df.to_sql(
-            "model_metrics",
-            engine,
-            schema="credit_risk",
-            if_exists="append",
-            index=False,
-        )
-        thresholds.to_sql(
-            "threshold_analysis",
-            engine,
-            schema="credit_risk",
-            if_exists="append",
-            index=False,
-            chunksize=3000,
-            method="multi",
-        )
-        feature_importance.to_sql(
-            "feature_importance",
-            engine,
-            schema="credit_risk",
-            if_exists="append",
-            index=False,
-        )
+    predictions.to_sql(
+        "loan_predictions",
+        engine,
+        schema="credit_risk",
+        if_exists="append",
+        index=False,
+        chunksize=3000,
+        method="multi",
+    )
+    metrics_df.to_sql(
+        "model_metrics",
+        engine,
+        schema="credit_risk",
+        if_exists="append",
+        index=False,
+    )
+    thresholds.to_sql(
+        "threshold_analysis",
+        engine,
+        schema="credit_risk",
+        if_exists="append",
+        index=False,
+        chunksize=3000,
+        method="multi",
+    )
+    feature_importance.to_sql(
+        "feature_importance",
+        engine,
+        schema="credit_risk",
+        if_exists="append",
+        index=False,
+    )
 
     print(json.dumps(metadata, indent=2))
     print(metrics_df.to_string(index=False))
-    print(f"Saved model outputs to: {OUTPUT_DIR}")
+    print("Model outputs written to PostgreSQL schema credit_risk.")
+    print(f"Model files saved to: {MODEL_DIR}")
 
 
 if __name__ == "__main__":

@@ -1,9 +1,38 @@
+# Secrets and local configuration
 .env
+.env.*
+!.env.example
+
+# Python environments and caches
 .venv/
+venv/
+env/
 __pycache__/
-*.pyc
-data/raw/*.csv
-data/processed/*.csv
-data/outputs/*.csv
-models/*.joblib
-dashboard/*.pbix
+*.py[cod]
+*.pyo
+*.log
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Raw source data is excluded. Processed results, the generated Power BI
+# workbook, model artifacts, and dashboard files are intentionally tracked
+# after the pipeline has been run as portfolio evidence.
+data/raw/*
+!data/raw/.gitkeep
+
+# Local Office/Power BI temporary files
+~$*.xlsx
+*.tmp
+*.bak
+
+# Keep portfolio-facing documentation and dashboard artifacts visible.
+!dashboard/
+!dashboard/**/*.md
+!dashboard/**/*.json
+!dashboard/**/*.png
+!dashboard/**/*.svg
+!dashboard/**/*.pbix

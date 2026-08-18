@@ -8,9 +8,7 @@ PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 OUTPUT_DIR = PROJECT_ROOT / "data" / "outputs"
 MODEL_DIR = PROJECT_ROOT / "models"
 SQL_DIR = PROJECT_ROOT / "sql"
-EXCEL_DIR = PROJECT_ROOT / "excel"
 DASHBOARD_DIR = PROJECT_ROOT / "dashboard"
-DASHBOARD_DATA_DIR = DASHBOARD_DIR / "data"
 
 
 def _load_local_env(path: Path) -> None:
@@ -43,6 +41,9 @@ PROCESSED_FILES = {
     "vintage": PROCESSED_DIR / "vintage_analysis_clean.csv",
 }
 
+AUDIT_REPORT = PROCESSED_DIR / "data_audit_report.json"
+POWERBI_WORKBOOK = OUTPUT_DIR / "credit_risk_powerbi_dataset.xlsx"
+
 
 def ensure_directories() -> None:
     for directory in (
@@ -50,9 +51,7 @@ def ensure_directories() -> None:
         PROCESSED_DIR,
         OUTPUT_DIR,
         MODEL_DIR,
-        EXCEL_DIR,
         DASHBOARD_DIR,
-        DASHBOARD_DATA_DIR,
     ):
         directory.mkdir(parents=True, exist_ok=True)
 
@@ -78,3 +77,12 @@ def psycopg2_params() -> dict:
         "user": os.getenv("PGUSER", "postgres"),
         "password": os.getenv("PGPASSWORD", ""),
     }
+
+
+def validate_database_config() -> None:
+    password = os.getenv("PGPASSWORD", "")
+    if not password or password == "CHANGE_ME":
+        raise RuntimeError(
+            "PostgreSQL password is not configured. Copy .env.example to .env "
+            "and replace PGPASSWORD=CHANGE_ME with your actual password."
+        )

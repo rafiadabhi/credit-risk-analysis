@@ -1,57 +1,69 @@
 # Interview Guide
 
-## 60-second project explanation
+## 60-second explanation template
 
-I built an end-to-end credit-risk portfolio project on 50,000 loans across 10 sectors. I audited five source files, separated post-outcome leakage and existing risk-engine outputs, engineered application-time features in Python, loaded clean tables into PostgreSQL, and wrote SQL for concentration, vintage, migration, stress, and threshold analysis. Because default rates changed sharply over time, I used 2015–2020 for training, 2021 for validation, and 2022–2023 as an unseen test set. A calibrated Random Forest achieved 0.868 ROC-AUC and 0.425 PR-AUC on 11,077 test loans. At the validation-selected 0.17 threshold, it captured 87.5% of test defaults while routing 34.5% to manual review. I then prepared an Excel simulator and a four-page Power BI design. I present it as a triage model, not an automatic rejection system.
+I built an end-to-end credit-risk portfolio project on 50,000 loans across 10
+sectors. I audited five source files, excluded post-outcome leakage and existing
+risk-engine outputs, and engineered application-time features in Python. I
+loaded the clean datasets into PostgreSQL and created SQL reporting layers for
+portfolio concentration, rating migration, vintage performance, stress
+scenarios, and threshold analysis. Because risk changes over time, I used
+2015–2020 for training, 2021 for validation, and 2022–2023 as an untouched test
+period. I compared Logistic Regression, Calibrated Random Forest, and XGBoost,
+selected the model using validation PR-AUC, and exported PostgreSQL outputs into
+one multi-table Excel workbook for a four-page Power BI report. The score is a
+manual-review triage tool, not an automatic rejection system.
 
-## Questions and concise answers
+After your run, append one sentence using the actual selected model, test
+PR-AUC/ROC-AUC, threshold, recall, and manual-review rate.
+
+## Core questions
 
 ### Why not use a random split?
 
-Origination-year default rates shift materially. A random split would mix earlier and later regimes and give an overly optimistic estimate. The time split better approximates scoring future originations.
+Origination-year default rates change materially. A random split would mix past
+and future regimes and give an optimistic estimate. A time split better mimics
+future application scoring.
 
-### Why PR-AUC instead of accuracy?
+### Why prioritize PR-AUC?
 
-Defaults are the minority class, and accuracy can look high by predicting non-default. PR-AUC focuses on positive-class ranking and is more informative for review prioritization.
+Defaults are the minority class. Accuracy can look high while missing defaults;
+PR-AUC directly evaluates positive-class ranking under imbalance.
 
 ### Why exclude annual PD, LGD, EL, RWA, and unexpected loss?
 
-They are outputs of an existing risk process. Using them would make the new classifier circular. I retain them only for separate portfolio benchmarking and loss-proxy construction.
+They are outputs of an existing risk process. Using them would make the new
+classifier circular. They are retained only for separate portfolio reporting
+and the review-priority proxy.
 
-### Why exclude survival months and recovery fields?
+### Why exclude survival and recovery fields?
 
-They are only known after origination and partly after default, so they leak the outcome.
+They are known after origination and partly after default, so they leak future
+information.
 
-### Why does threshold 0.50 predict no positives?
+### Why is the threshold not automatically 0.50?
 
-The calibrated model's scores max below 0.50. A classifier threshold is a decision parameter, not a universal rule. I choose it on validation data based on recall and precision trade-offs.
+A probability cutoff is a business decision parameter. It is selected on
+validation data according to recall, precision, workload, and cost trade-offs;
+0.50 has no universal operational meaning.
 
-### Is 19.8% precision bad?
+### Can this project claim reduced NPL?
 
-It means about one in five review flags defaulted. Whether that is acceptable depends on manual-review capacity and default cost. The threshold intentionally prioritizes recall; it is unsuitable for automatic rejection.
+No. There is no deployment or controlled before/after evaluation. The project
+demonstrates a prioritization method, not measured causal impact.
 
-### Can you claim the model reduces NPL?
+### Why one Excel workbook instead of several CSVs?
 
-No. The project has no controlled deployment or measured before/after outcome. It can support a retention/underwriting hypothesis, not prove impact.
-
-### What is the largest business insight?
-
-Risk ranking is concentrated: the top test decile has a 44.1% default rate, 5.64 times the test average. This supports prioritizing limited analyst capacity.
-
-### What would you improve next?
-
-Run XGBoost locally, add probability calibration diagnostics by cohort, tune with nested or rolling validation, evaluate fairness with legally appropriate variables, track review costs, and validate on truly external lender data.
-
-### Why is the title “contractual-term” scoring?
-
-The supplied target is eventual default during each simulated loan term. Calling it 12-month PD or generic production default prediction would overstate what the label supports.
+Power BI needs separate fact tables because each source has a different grain.
+A multi-sheet/table workbook keeps those grains separate while providing one
+physical, portable source generated from PostgreSQL.
 
 ## Demo order
 
-1. Show audit report and leakage decision.
-2. Show PostgreSQL tables and one window-function query.
-3. Show model metrics and top risk-decile lift.
-4. Change the Excel/Power BI threshold from 0.17 to 0.25 and explain the workload/recall trade-off.
-5. Show severe/COVID-like stress and vintage pages.
-6. End with limitations and next steps.
-
+1. Show the audit report and leakage exclusions.
+2. Show PostgreSQL tables and SQL reporting objects.
+3. Show all three model candidates and the actual selected model.
+4. Explain the validation-selected threshold and review trade-off.
+5. Open the single Excel source and show its separate tables.
+6. Demonstrate Executive, Model Performance, Underwriting, and Resilience pages.
+7. End with limitations and next steps.
