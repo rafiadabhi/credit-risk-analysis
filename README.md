@@ -1,9 +1,9 @@
 # Credit Risk Analysis
 
-I built this project to analyze a loan portfolio, estimate contractual-term default risk, and support manual underwriting review. The project combines Python, PostgreSQL, SQL, machine learning, and Power BI in one reproducible workflow.
+I built this project to analyze a loan portfolio, estimate contractual term default risk, and support manual underwriting review. Leveraging ChatGPT (SOL 5.6) as an AI co-pilot, I accelerated the entire development lifecycle from data exploration and SQL query optimization in PostgreSQL, to feature engineering and hyperparameter tuning for machine learning models, all the way to automating the Power BI dashboard pipeline. The project combines Python, PostgreSQL, SQL, machine learning, and Power BI into one fully reproducible, end-to-end workflow.
 
 **Author:** Rafi Adabhi Sunarya  
-**Project type:** Data analytics and machine learning portfolio project  
+**Project title:** Credit Risk Portfolio & Contractual-Term Default Scoring
 **Tools:** Python, PostgreSQL, SQL, and Power BI  
 **Dataset size:** 50,000 loans across 10 sectors
 
@@ -417,12 +417,4 @@ Before committing, verify that no individual generated file exceeds GitHub's 100
 - No protected-class fields are provided, so a complete fairness audit is not possible.
 - The risk-loss measure is a prioritization proxy, not an accounting expected-loss calculation.
 - The project does not claim deployment, real-time scoring, automatic rejection, production readiness, causal impact, or measured NPL reduction.
-
-## Portfolio summary after validation
-
-**Credit Risk Portfolio & Contractual-Term Default Scoring — GitHub | Power BI**
-
-- Cleaned and validated 50,000 loans across 10 sectors using Python, engineered leakage-safe application features, and loaded five analytical datasets into PostgreSQL for SQL-based portfolio, stress, vintage, and migration analysis.
-- Benchmarked Logistic Regression, Calibrated Random Forest, and XGBoost using a temporal holdout; selected `[MODEL]` with `[TEST PR-AUC]` PR-AUC and `[TEST ROC-AUC]` ROC-AUC, then built a centralized PostgreSQL-to-Power BI underwriting dashboard.
-
 Replace the bracketed values only after `src.06_validate_outputs` returns `PASS`.
