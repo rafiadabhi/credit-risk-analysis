@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <style>
+    text{font-family:'Segoe UI',Arial,sans-serif}.title{font-size:28px;font-weight:700;fill:#17212B}.sub{font-size:12px;fill:#667587}.label{font-size:10px;font-weight:700;fill:#667587}.value{font-size:28px;font-weight:700;fill:#17212B}.vt{font-size:15px;font-weight:700;fill:#17212B}.card{fill:#fff;stroke:#D7DEE7}.muted{fill:#EDF1F5}.axis{stroke:#D7DEE7}
+  </style>
+  <rect width="1440" height="900" fill="#F5F7FA"/><rect width="92" height="900" fill="#132238"/>
+  <text x="46" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">CR</text>
+  <rect x="12" y="202" width="68" height="72" rx="10" fill="#1F4E78"/><text x="46" y="246" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">MODEL</text>
+  <text class="title" x="120" y="48">Model Performance &amp; Risk Segmentation</text><text class="sub" x="120" y="73">Layout reference · values populate only after the complete pipeline passes</text>
+  <rect x="1110" y="28" width="286" height="34" rx="17" fill="#E8F3FB"/><text x="1253" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#1F4E78">NO HARDCODED MODEL RESULTS</text>
+  <g>
+    <rect class="card" x="120" y="102" width="300" height="108" rx="10"/><rect x="120" y="102" width="5" height="108" rx="3" fill="#1F4E78"/><text class="label" x="142" y="133">SELECTED MODEL</text><text class="value" x="142" y="174" font-size="22">From pipeline</text>
+    <rect class="card" x="438" y="102" width="220" height="108" rx="10"/><rect x="438" y="102" width="5" height="108" rx="3" fill="#20A4F3"/><text class="label" x="460" y="133">TEST ROC-AUC</text><text class="value" x="460" y="174">—</text>
+    <rect class="card" x="676" y="102" width="220" height="108" rx="10"/><rect x="676" y="102" width="5" height="108" rx="3" fill="#2CB67D"/><text class="label" x="698" y="133">TEST PR-AUC</text><text class="value" x="698" y="174">—</text>
+    <rect class="card" x="914" y="102" width="220" height="108" rx="10"/><rect x="914" y="102" width="5" height="108" rx="3" fill="#F4B942"/><text class="label" x="936" y="133">BRIER SCORE</text><text class="value" x="936" y="174">—</text>
+    <rect class="card" x="1152" y="102" width="244" height="108" rx="10"/><rect x="1152" y="102" width="5" height="108" rx="3" fill="#D64550"/><text class="label" x="1174" y="133">TEST DEFAULT RATE</text><text class="value" x="1174" y="174">—</text>
+  </g>
+  <g>
+    <rect class="card" x="120" y="230" width="620" height="304" rx="10"/><text class="vt" x="142" y="262">Risk Decile Lift</text><line class="axis" x1="156" y1="488" x2="708" y2="488"/>
+    <g fill="#D7DEE7"><rect x="166" y="372" width="38" height="116" rx="4"/><rect x="220" y="397" width="38" height="91" rx="4"/><rect x="274" y="415" width="38" height="73" rx="4"/><rect x="328" y="430" width="38" height="58" rx="4"/><rect x="382" y="442" width="38" height="46" rx="4"/><rect x="436" y="451" width="38" height="37" rx="4"/><rect x="490" y="459" width="38" height="29" rx="4"/><rect x="544" y="465" width="38" height="23" rx="4"/><rect x="598" y="470" width="38" height="18" rx="4"/><rect x="652" y="474" width="38" height="14" rx="4"/></g>
+    <text class="sub" x="432" y="342" text-anchor="middle">Placeholder geometry · replace with Fact Loans</text>
+    <rect class="card" x="758" y="230" width="310" height="304" rx="10"/><text class="vt" x="780" y="262">Model Comparison</text>
+    <g class="muted"><rect x="784" y="330" width="252" height="20" rx="4"/><rect x="784" y="395" width="252" height="20" rx="4"/><rect x="784" y="460" width="252" height="20" rx="4"/></g><g class="sub"><text x="784" y="318">Logistic Regression</text><text x="784" y="383">Calibrated Random Forest</text><text x="784" y="448">XGBoost</text><text x="910" y="510" text-anchor="middle">Test PR-AUC from model metrics</text></g>
+    <rect class="card" x="1086" y="230" width="310" height="304" rx="10"/><text class="vt" x="1108" y="262">Confusion Matrix</text>
+    <rect x="1110" y="302" width="122" height="82" rx="7" fill="#E8F6EF"/><rect x="1246" y="302" width="122" height="82" rx="7" fill="#FFF5D6"/><rect x="1110" y="398" width="122" height="82" rx="7" fill="#FBEAEC"/><rect x="1246" y="398" width="122" height="82" rx="7" fill="#E8F3FB"/>
+    <g text-anchor="middle"><text class="sub" x="1171" y="330">True Negative</text><text class="value" x="1171" y="365" fill="#2CB67D">—</text><text class="sub" x="1307" y="330">False Positive</text><text class="value" x="1307" y="365" fill="#F4B942">—</text><text class="sub" x="1171" y="426">False Negative</text><text class="value" x="1171" y="461" fill="#D64550">—</text><text class="sub" x="1307" y="426">True Positive</text><text class="value" x="1307" y="461" fill="#1F4E78">—</text></g>
+  </g>
+  <g>
+    <rect class="card" x="120" y="552" width="620" height="316" rx="10"/><text class="vt" x="142" y="584">Permutation Feature Importance</text>
+    <g class="sub"><text x="150" y="638">Feature 1</text><text x="150" y="682">Feature 2</text><text x="150" y="726">Feature 3</text><text x="150" y="770">Feature 4</text><text x="150" y="814">Feature 5</text></g><g class="muted"><rect x="250" y="622" width="430" height="18" rx="4"/><rect x="250" y="666" width="430" height="18" rx="4"/><rect x="250" y="710" width="430" height="18" rx="4"/><rect x="250" y="754" width="430" height="18" rx="4"/><rect x="250" y="798" width="430" height="18" rx="4"/></g>
+    <rect class="card" x="758" y="552" width="638" height="316" rx="10"/><text class="vt" x="780" y="584">Performance by Temporal Split</text><line class="axis" x1="800" y1="810" x2="1360" y2="810"/><line class="axis" x1="800" y1="622" x2="800" y2="810"/><path d="M830 770 L960 720 L1090 694 L1220 660 L1330 642" fill="none" stroke="#1F4E78" stroke-width="3" stroke-dasharray="7 6"/><path d="M830 790 L960 756 L1090 730 L1220 704 L1330 680" fill="none" stroke="#20A4F3" stroke-width="3" stroke-dasharray="7 6"/><text class="sub" x="1080" y="745" text-anchor="middle">Use current-run validation and test metrics</text>
+  </g>
+</svg>

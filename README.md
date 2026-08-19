@@ -1,9 +1,9 @@
 # Credit Risk Analysis
 
-I built this project to analyze a loan portfolio, estimate contractual term default risk, and support manual underwriting review. Leveraging ChatGPT (SOL 5.6) as an AI co-pilot, I accelerated the entire development lifecycle from data exploration and SQL query optimization in PostgreSQL, to feature engineering and hyperparameter tuning for machine learning models, all the way to automating the Power BI dashboard pipeline. The project combines Python, PostgreSQL, SQL, machine learning, and Power BI into one fully reproducible, end-to-end workflow.
+I built this project to analyze a loan portfolio, estimate contractual-term default risk, and support manual underwriting review. The project combines Python, PostgreSQL, SQL, machine learning, and Power BI in one reproducible workflow.
 
 **Author:** Rafi Adabhi Sunarya  
-**Project title:** Credit Risk Portfolio & Contractual-Term Default Scoring
+**Project type:** Data analytics and machine learning portfolio project  
 **Tools:** Python, PostgreSQL, SQL, and Power BI  
 **Dataset size:** 50,000 loans across 10 sectors
 
@@ -41,7 +41,7 @@ The Power BI blueprint, theme, and four reference layouts are included in [`dash
 
 ![Portfolio Resilience](dashboard/mockups/04_portfolio_resilience.png)
 
-The complete Power BI instructions, relationships, DAX measures, field placements, and validation checks are documented in [`POWER_BI_DASHBOARD_BLUEPRINT.md`](dashboard/POWER_BI_DASHBOARD_BLUEPRINT.md).
+The complete Power BI instructions, relationships, DAX measures, field placements, and validation checks are documented in [`POWER_BI_DASHBOARD_BLUEPRINT.md`](dashboard/POWER_BI_DASHBOARD_BLUEPRINT.md). For a practical click-by-click build sequence in Indonesian, use [`POWER_BI_DASHBOARD_END_TO_END_TUTORIAL.md`](dashboard/POWER_BI_DASHBOARD_END_TO_END_TUTORIAL.md).
 
 ## End-to-end workflow
 
@@ -186,6 +186,7 @@ credit-risk-analysis/
 │   │   ├── 03_underwriting_simulator.png
 │   │   └── 04_portfolio_resilience.png
 │   ├── POWER_BI_DASHBOARD_BLUEPRINT.md
+│   ├── POWER_BI_DASHBOARD_END_TO_END_TUTORIAL.md
 │   └── credit_risk_theme.json
 ├── data/
 │   ├── raw/                  # add five source CSV files locally
@@ -358,7 +359,7 @@ Power BI imports one workbook containing separate tables because loans, threshol
 3. Open `data\outputs\credit_risk_powerbi_dataset.xlsx`.
 4. Select the eight analytical tables listed above.
 5. Do not load `tblManifest` as a fact table.
-6. Follow [`dashboard/POWER_BI_DASHBOARD_BLUEPRINT.md`](dashboard/POWER_BI_DASHBOARD_BLUEPRINT.md).
+6. Follow the concise [`dashboard/POWER_BI_DASHBOARD_BLUEPRINT.md`](dashboard/POWER_BI_DASHBOARD_BLUEPRINT.md) and the step-by-step Indonesian [`dashboard/POWER_BI_DASHBOARD_END_TO_END_TUTORIAL.md`](dashboard/POWER_BI_DASHBOARD_END_TO_END_TUTORIAL.md).
 
 ## PostgreSQL validation
 
@@ -417,4 +418,12 @@ Before committing, verify that no individual generated file exceeds GitHub's 100
 - No protected-class fields are provided, so a complete fairness audit is not possible.
 - The risk-loss measure is a prioritization proxy, not an accounting expected-loss calculation.
 - The project does not claim deployment, real-time scoring, automatic rejection, production readiness, causal impact, or measured NPL reduction.
+
+## Portfolio summary after validation
+
+**Credit Risk Portfolio & Contractual-Term Default Scoring — GitHub | Power BI**
+
+- Cleaned and validated 50,000 loans across 10 sectors using Python, engineered leakage-safe application features, and loaded five analytical datasets into PostgreSQL for SQL-based portfolio, stress, vintage, and migration analysis.
+- Benchmarked Logistic Regression, Calibrated Random Forest, and XGBoost using a temporal holdout; selected `[MODEL]` with `[TEST PR-AUC]` PR-AUC and `[TEST ROC-AUC]` ROC-AUC, then built a centralized PostgreSQL-to-Power BI underwriting dashboard.
+
 Replace the bracketed values only after `src.06_validate_outputs` returns `PASS`.

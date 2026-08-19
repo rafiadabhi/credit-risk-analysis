@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <style>
+    text{font-family:'Segoe UI',Arial,sans-serif}.title{font-size:28px;font-weight:700;fill:#17212B}.sub{font-size:12px;fill:#667587}.label{font-size:10px;font-weight:700;fill:#667587}.value{font-size:28px;font-weight:700;fill:#17212B}.vt{font-size:15px;font-weight:700;fill:#17212B}.card{fill:#fff;stroke:#D7DEE7}.axis{stroke:#D7DEE7}
+  </style>
+  <rect width="1440" height="900" fill="#F5F7FA"/><rect width="92" height="900" fill="#132238"/>
+  <text x="46" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">CR</text><rect x="12" y="306" width="68" height="72" rx="10" fill="#1F4E78"/><text x="46" y="350" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">DECISION</text>
+  <text class="title" x="120" y="48">Underwriting Decision Simulator</text><text class="sub" x="120" y="73">Test-set review workload and error trade-off controlled by the selected threshold</text>
+  <rect x="1110" y="28" width="286" height="34" rx="17" fill="#E8F3FB"/><text x="1253" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#1F4E78">VALUES POPULATE AFTER PIPELINE</text>
+  <rect class="card" x="120" y="102" width="1276" height="106" rx="10"/>
+  <text class="label" x="144" y="132">DECISION THRESHOLD</text><line x1="144" y1="170" x2="714" y2="170" stroke="#C6D0DC" stroke-width="6" stroke-linecap="round"/><circle cx="402" cy="170" r="11" fill="#1F4E78"/><text class="value" x="740" y="178">—</text>
+  <text class="label" x="865" y="132">OPPORTUNITY COST ASSUMPTION</text><line x1="865" y1="170" x2="1250" y2="170" stroke="#C6D0DC" stroke-width="6" stroke-linecap="round"/><circle cx="1030" cy="170" r="11" fill="#F4B942"/><text class="value" x="1280" y="178" font-size="24">2.0%</text>
+  <g>
+    <rect class="card" x="120" y="226" width="244" height="104" rx="10"/><rect x="120" y="226" width="5" height="104" rx="3" fill="#2CB67D"/><text class="label" x="142" y="257">PRECISION</text><text class="value" x="142" y="300">—</text>
+    <rect class="card" x="378" y="226" width="244" height="104" rx="10"/><rect x="378" y="226" width="5" height="104" rx="3" fill="#20A4F3"/><text class="label" x="400" y="257">RECALL</text><text class="value" x="400" y="300">—</text>
+    <rect class="card" x="636" y="226" width="244" height="104" rx="10"/><rect x="636" y="226" width="5" height="104" rx="3" fill="#1F4E78"/><text class="label" x="658" y="257">APPROVAL RATE</text><text class="value" x="658" y="300">—</text>
+    <rect class="card" x="894" y="226" width="244" height="104" rx="10"/><rect x="894" y="226" width="5" height="104" rx="3" fill="#F4B942"/><text class="label" x="916" y="257">MANUAL REVIEW LOANS</text><text class="value" x="916" y="300">—</text>
+    <rect class="card" x="1152" y="226" width="244" height="104" rx="10"/><rect x="1152" y="226" width="5" height="104" rx="3" fill="#D64550"/><text class="label" x="1174" y="257">DYNAMIC COST PROXY</text><text class="value" x="1174" y="300">—</text>
+  </g>
+  <rect class="card" x="120" y="348" width="778" height="300" rx="10"/><text class="vt" x="142" y="380">Threshold Trade-off</text><line class="axis" x1="158" y1="602" x2="866" y2="602"/><line class="axis" x1="158" y1="414" x2="158" y2="602"/><path d="M175 565 C310 540 430 505 560 455 S750 405 845 395" fill="none" stroke="#20A4F3" stroke-width="3" stroke-dasharray="8 6"/><path d="M175 420 C310 435 430 465 560 510 S750 560 845 580" fill="none" stroke="#D64550" stroke-width="3" stroke-dasharray="8 6"/><text class="sub" x="508" y="526" text-anchor="middle">Precision, recall, and approval rate from Fact Thresholds</text>
+  <rect class="card" x="916" y="348" width="480" height="300" rx="10"/><text class="vt" x="938" y="380">Dynamic Confusion Matrix</text>
+  <rect x="940" y="418" width="196" height="78" rx="7" fill="#E8F6EF"/><rect x="1154" y="418" width="196" height="78" rx="7" fill="#FFF5D6"/><rect x="940" y="514" width="196" height="78" rx="7" fill="#FBEAEC"/><rect x="1154" y="514" width="196" height="78" rx="7" fill="#E8F3FB"/>
+  <g text-anchor="middle"><text class="sub" x="1038" y="447">True Negative</text><text class="value" x="1038" y="480" fill="#2CB67D">—</text><text class="sub" x="1252" y="447">False Positive</text><text class="value" x="1252" y="480" fill="#F4B942">—</text><text class="sub" x="1038" y="543">False Negative</text><text class="value" x="1038" y="576" fill="#D64550">—</text><text class="sub" x="1252" y="543">True Positive</text><text class="value" x="1252" y="576" fill="#1F4E78">—</text></g>
+  <rect class="card" x="120" y="666" width="1276" height="202" rx="10"/><text class="vt" x="142" y="698">Prioritized Manual Review Queue</text><rect x="142" y="720" width="1232" height="34" fill="#17365D"/>
+  <g font-size="10" font-weight="700" fill="#fff"><text x="158" y="742">Loan ID</text><text x="300" y="742">Sector</text><text x="474" y="742">Rating</text><text x="590" y="742">Credit Score</text><text x="735" y="742">EAD</text><text x="865" y="742">Risk Score</text><text x="1015" y="742">Risk Band</text><text x="1160" y="742">Loss Proxy</text></g>
+  <g fill="#EDF1F5"><rect x="142" y="766" width="1232" height="24"/><rect x="142" y="798" width="1232" height="24"/><rect x="142" y="830" width="1232" height="24"/></g>
+</svg>
